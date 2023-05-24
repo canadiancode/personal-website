@@ -98,6 +98,7 @@ select {
   height: 100vh;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 .section1 .imageTextContainer .heroImages .heroImg {
   position: absolute;
@@ -107,21 +108,13 @@ select {
   bottom: 0;
   object-position: bottom;
 }
-.section1 .imageTextContainer .heroImages .imageSpacer {
-  position: absolute;
-  height: 10px;
-  width: 100%;
-  bottom: -5px;
-  background-color: var(--darker-blue-bg);
-  z-index: 1;
-}
 .section1 .imageTextContainer .heroImages .heroImg1 {
-  transform: translateY(150px);
+  transform: translateY(160px);
   z-index: 3;
 }
 @media screen and (max-width: 1600px) {
   .section1 .imageTextContainer .heroImages .heroImg1 {
-    transform: translateY(120px);
+    transform: translateY(90px);
   }
 }
 .section1 .imageTextContainer .heroImages .heroImg2 {
@@ -139,6 +132,7 @@ select {
   height: 100vh;
   width: 100%;
   background-color: var(--darker-blue-bg);
+  z-index: 1;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

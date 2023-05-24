@@ -121,18 +121,37 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // Hero Parallax section
 document.addEventListener('scroll', function (e) {
   var windowWidth = window.innerWidth;
+
+  // rocks, tree line and sunset
   var imageOne = document.querySelector('.heroImg1');
   var imageTwo = document.querySelector('.heroImg2');
-  var imageThree = document.querySelector('.heroImg3');
   var imageFour = document.querySelector('.heroImg4');
   var spacer = document.querySelector('.imageSpacer');
+
+  // mountains and moon
+  var mtnLayerThreeL = document.querySelector('.mtnLayer3L');
+  var mtnLayerThreeR = document.querySelector('.mtnLayer3R');
+  var mtnLayerTwoR = document.querySelector('.mtnLayer2R');
+  var mtnLayerTwoL = document.querySelector('.mtnLayer2L');
+  var mtnLayerOneR = document.querySelector('.mtnLayer1R');
+  var mtnLayerOneL = document.querySelector('.mtnLayer1L');
+  var moon = document.querySelector('.moon');
   var boundingClientRect = imageFour.getBoundingClientRect();
-  var imageOneAnimation = boundingClientRect.y / 4;
-  var imageTwoAnimation = boundingClientRect.y / 6;
-  var imageThreeAnimation = boundingClientRect.y / 8;
-  var spacerHeight = imageTwoAnimation * -1;
+
+  // animation calculation
+  var imageOneAnimation = boundingClientRect.y / 15;
+  var imageTwoAnimation = boundingClientRect.y / -20;
+  var mtnLayerThreeAnimationLeft = boundingClientRect.y / 5;
+  var mtnLayerThreeAnimationRight = boundingClientRect.y * -1 / 5;
+  var mtnLayerTwoAnimationLeft = boundingClientRect.y / 3;
+  var mtnLayerTwoAnimationRight = boundingClientRect.y * -1 / 3;
+  var mtnLayerOneAnimationLeft = boundingClientRect.y / 1.5;
+  var mtnLayerOneAnimationRight = boundingClientRect.y * -1 / 1.5;
+  var moonAnimation = boundingClientRect.y * -1 * 0.7;
+
+  // if statement to determine window size
   if (windowWidth >= 1600) {
-    var imageOneOriginalHeight = 150;
+    var imageOneOriginalHeight = 160;
     var imageTwoOriginalHeight = 50;
 
     // layer 1
@@ -143,13 +162,22 @@ document.addEventListener('scroll', function (e) {
     var imageTwoFromTop = imageTwoOriginalHeight + imageTwoAnimation;
     imageTwo.style.transform = "translateY(".concat(imageTwoFromTop, "px)");
 
-    // layer 3
-    imageThree.style.transform = "translateY(".concat(imageThreeAnimation);
+    // mtn layer 3 left & right
+    mtnLayerThreeL.style.transform = "translateX(".concat(mtnLayerThreeAnimationLeft, "px)");
+    mtnLayerThreeR.style.transform = "translateX(".concat(mtnLayerThreeAnimationRight, "px)");
 
-    // spacer
-    spacer.style.height = "".concat(spacerHeight, "px");
+    // mtn layer 2 left & right
+    mtnLayerTwoL.style.transform = "translateX(".concat(mtnLayerTwoAnimationLeft, "px)");
+    mtnLayerTwoR.style.transform = "translateX(".concat(mtnLayerTwoAnimationRight, "px)");
+
+    // mtn layer 1 left & right
+    mtnLayerOneL.style.transform = "translateX(".concat(mtnLayerOneAnimationLeft, "px)");
+    mtnLayerOneR.style.transform = "translateX(".concat(mtnLayerOneAnimationRight, "px)");
+
+    // moon
+    moon.style.transform = "translateY(".concat(moonAnimation, "px)");
   } else {
-    var _imageOneOriginalHeight = 120;
+    var _imageOneOriginalHeight = 90;
     var _imageTwoOriginalHeight = 20;
 
     // layer 1
@@ -160,11 +188,20 @@ document.addEventListener('scroll', function (e) {
     var _imageTwoFromTop = _imageTwoOriginalHeight + imageTwoAnimation;
     imageTwo.style.transform = "translateY(".concat(_imageTwoFromTop, "px)");
 
-    // layer 3
-    imageThree.style.transform = "translateY(".concat(imageThreeAnimation);
+    // mtn layer 3 left & right
+    mtnLayerThreeL.style.transform = "translateX(".concat(mtnLayerThreeAnimationLeft, "px)");
+    mtnLayerThreeR.style.transform = "translateX(".concat(mtnLayerThreeAnimationRight, "px)");
 
-    // spacer
-    spacer.style.height = "".concat(spacerHeight, "px");
+    // mtn layer 2 left & right
+    mtnLayerTwoL.style.transform = "translateX(".concat(mtnLayerTwoAnimationLeft, "px)");
+    mtnLayerTwoR.style.transform = "translateX(".concat(mtnLayerTwoAnimationRight, "px)");
+
+    // mtn layer 1 left & right
+    mtnLayerOneL.style.transform = "translateX(".concat(mtnLayerOneAnimationLeft, "px)");
+    mtnLayerOneR.style.transform = "translateX(".concat(mtnLayerOneAnimationRight, "px)");
+
+    // moon
+    moon.style.transform = "translateY(".concat(moonAnimation, "px)");
   }
 });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -192,7 +229,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61627" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50791" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
