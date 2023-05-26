@@ -76,8 +76,7 @@ select {
 
 // CSS Reset end
 
-
-// 
+// CSS variables
 :root {
 
     // background:
@@ -85,16 +84,22 @@ select {
     --ligher-blue-bg: #1E3554;
     --darker-green-bg: #001510;
     --ligher-green-bg: #11283A;
-    --light-accent-bg: #E9997F;
+    --light-accent-bg: #E9997F; // rgb(233, 153, 127)
 
     // font color:
     --black: black;
     --white: white;
+    --heading-text-shadow: 0px 0px 2vmax #E9997F;
 
     // font size:
-    --main-header-size: calc(12px + 5vmin);
-    --main-subheader-size: calc(12px + 3vmin);
+    --main-header-size: calc(12px + 4vmax);
+    --main-header-size-mobile: calc(12px + 3vmax);
+    --main-subheader-size: calc(12px + 2vmax);
     --paragraph-size: 2rem;
+
+    // font family
+    --font-main-heading: 'Sigmar One', cursive;
+    --font-sub-heading: 'Hammersmith One', sans-serif;
 
 }
 
@@ -109,6 +114,37 @@ select {
     .imageTextContainer {
         width: 100%;
         height: 100%;
+        .heroText {
+          position: absolute;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          top: 20%;
+          h1, h2 {
+            transform: translateY(50px);
+            transition: 0.6s ease-in-out;
+            clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+            text-align: center;
+            padding: 0em 2rem;
+            text-shadow: var(--heading-text-shadow);
+          }
+          h1 {
+            font-family: var(--font-main-heading);
+            font-size: var(--main-header-size);
+            @media screen and (max-width: 300px) {
+              & {
+                font-size: var(--main-header-size-mobile);
+              }
+            }
+          }
+          h2 {
+            font-family: var(--font-sub-heading);
+            font-size: var(--main-subheader-size);
+          }
+        }
         .heroImages {
             width: 100%;
             height: 100vh;

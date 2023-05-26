@@ -88,3 +88,19 @@ document.addEventListener('scroll', (e) => {
     }
 });
 
+// Heading display animation on load
+setTimeout(() => {
+
+    const heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
+    const heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
+
+    // animation
+    heroTextHeadingOne.style.transform = 'translate(0px)';
+    heroTextHeadingOne.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+
+    setTimeout(() => {
+        // animation
+        heroTextHeadingTwo.style.transform = 'translate(0px)';
+        heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+    }, 500);
+}, 200);
