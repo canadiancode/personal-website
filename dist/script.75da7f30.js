@@ -203,6 +203,53 @@ document.addEventListener('scroll', function (e) {
     // moon
     moon.style.transform = "translateY(".concat(moonAnimation, "px)");
   }
+
+  // heading text scroll, color and opacity animation
+  var heroText = document.querySelector('.heroText');
+  var heroTextScroll = boundingClientRect.y * -1;
+  heroText.style.transform = "translateY(".concat(heroTextScroll, "px)");
+  var heroTextOpacity = 1.5 - boundingClientRect.y * -4 / 1000;
+  heroText.style.opacity = "".concat(heroTextOpacity);
+  var redColor = 0;
+  var greenColor = 0;
+  var blueColor = 0;
+  if (heroTextScroll > 127) {
+    redColor = 233;
+    greenColor = 153;
+    blueColor = 127;
+  } else {
+    redColor = heroTextScroll * 2;
+    greenColor = heroTextScroll * 1.2;
+    blueColor = heroTextScroll;
+  }
+  var heroTextEl = document.querySelectorAll('.heroTextEl');
+  heroTextEl.forEach(function (text) {
+    text.style.color = "rgb(".concat(redColor, ", ").concat(greenColor, ", ").concat(blueColor, ")");
+    text.style.letterSpacing = "".concat(heroTextScroll / 70, "px");
+    if (heroTextScroll / 200 > 1) {
+      text.style.transform = "scale(".concat(heroTextScroll / 200, ")");
+    } else {
+      text.style.transform = "scale(1)";
+    }
+  });
+  if (heroTextScroll > 400) {
+    heroText.style.display = 'none';
+  } else {
+    heroText.style.display = 'flex';
+  }
+});
+
+// Hero text mouse move aniation
+document.addEventListener('mousemove', function (e) {
+  var heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
+  var heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
+  var windowWidth = window.innerWidth;
+  var clientX = e.clientX;
+  var centerPx = clientX - windowWidth / 2;
+  var mainHeadingValue = centerPx / 25;
+  var subHeadingValue = centerPx / 80;
+  heroTextHeadingOne.style.transform = "translateX(".concat(mainHeadingValue, "px)");
+  heroTextHeadingTwo.style.transform = "translateX(".concat(subHeadingValue, "px)");
 });
 
 // Heading display animation on load
@@ -244,7 +291,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60639" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65000" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

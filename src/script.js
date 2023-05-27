@@ -58,7 +58,6 @@ document.addEventListener('scroll', (e) => {
         // moon
         moon.style.transform = `translateY(${moonAnimation}px)`;
 
-    
     } else {
         const imageOneOriginalHeight = 90;
         const imageTwoOriginalHeight = 20;
@@ -86,7 +85,63 @@ document.addEventListener('scroll', (e) => {
         // moon
         moon.style.transform = `translateY(${moonAnimation}px)`;
     }
+
+    // heading text scroll, color and opacity animation
+    const heroText = document.querySelector('.heroText');
+    let heroTextScroll = boundingClientRect.y * -1
+    heroText.style.transform = `translateY(${heroTextScroll}px)`;
+
+    let heroTextOpacity = 1.5 - ((boundingClientRect.y * -4) / 1000);
+    heroText.style.opacity = `${heroTextOpacity}`;
+    let redColor = 0;
+    let greenColor = 0;
+    let blueColor = 0;
+
+    if (heroTextScroll > 127) {
+        redColor = 233;
+        greenColor = 153;
+        blueColor = 127;
+    } else {
+        redColor = (heroTextScroll * 2);
+        greenColor = (heroTextScroll * 1.2);
+        blueColor = heroTextScroll;
+    }
+
+    const heroTextEl = document.querySelectorAll('.heroTextEl');
+    heroTextEl.forEach(text => {
+        text.style.color = `rgb(${redColor}, ${greenColor}, ${blueColor})`;
+        text.style.letterSpacing = `${(heroTextScroll / 70)}px`;
+        
+        if ((heroTextScroll / 200) > 1) {
+            text.style.transform = `scale(${(heroTextScroll / 200)})`;
+        } else {
+            text.style.transform = `scale(1)`;
+        }
+
+    });
+
+    if (heroTextScroll > 400) {
+        heroText.style.display = 'none';
+    } else {
+        heroText.style.display = 'flex';
+    }
+
 });
+
+// Hero text mouse move aniation
+document.addEventListener('mousemove', (e) => {
+
+    const heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
+    const heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
+
+    let windowWidth = window.innerWidth;
+    let clientX = e.clientX;
+    let centerPx = clientX - (windowWidth / 2);
+    let mainHeadingValue = centerPx / 25;
+    let subHeadingValue = centerPx / 80;
+    heroTextHeadingOne.style.transform = `translateX(${mainHeadingValue}px)`;
+    heroTextHeadingTwo.style.transform = `translateX(${subHeadingValue}px)`;
+})
 
 // Heading display animation on load
 setTimeout(() => {
