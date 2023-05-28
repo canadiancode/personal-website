@@ -118,7 +118,22 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
-// Hero Parallax section
+// Heading display animation on load
+setTimeout(function () {
+  var heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
+  var heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
+
+  // animation
+  heroTextHeadingOne.style.transform = 'translate(0px)';
+  heroTextHeadingOne.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+  setTimeout(function () {
+    // animation
+    heroTextHeadingTwo.style.transform = 'translate(0px)';
+    heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+  }, 500);
+}, 200);
+
+// Parallax on scroll animation
 document.addEventListener('scroll', function (e) {
   var windowWidth = window.innerWidth;
 
@@ -286,7 +301,7 @@ document.addEventListener('scroll', function (e) {
   textIntersectionObserver.observe(headshotOutline);
 });
 
-// Hero text mouse move aniation
+// mouse move aniation
 document.addEventListener('mousemove', function (e) {
   // hero section
   var heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
@@ -308,21 +323,6 @@ document.addEventListener('mousemove', function (e) {
   var centerY = (headshotClientY - windowHeight / 2) / 50;
   headshot.style.transform = "translate(".concat(centerX, "px, ").concat(centerY, "px)");
 });
-
-// Heading display animation on load
-setTimeout(function () {
-  var heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
-  var heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
-
-  // animation
-  heroTextHeadingOne.style.transform = 'translate(0px)';
-  heroTextHeadingOne.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
-  setTimeout(function () {
-    // animation
-    heroTextHeadingTwo.style.transform = 'translate(0px)';
-    heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
-  }, 500);
-}, 200);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

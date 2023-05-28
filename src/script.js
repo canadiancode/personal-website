@@ -1,4 +1,21 @@
-// Hero Parallax section
+// Heading display animation on load
+setTimeout(() => {
+
+    const heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
+    const heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
+
+    // animation
+    heroTextHeadingOne.style.transform = 'translate(0px)';
+    heroTextHeadingOne.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+
+    setTimeout(() => {
+        // animation
+        heroTextHeadingTwo.style.transform = 'translate(0px)';
+        heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+    }, 500);
+}, 200);
+
+// Parallax on scroll animation
 document.addEventListener('scroll', (e) => {
     const windowWidth = window.innerWidth;
 
@@ -176,7 +193,7 @@ document.addEventListener('scroll', (e) => {
 
 });
 
-// Hero text mouse move aniation
+// mouse move aniation
 document.addEventListener('mousemove', (e) => {
 
     // hero section
@@ -200,20 +217,3 @@ document.addEventListener('mousemove', (e) => {
     let centerY = (headshotClientY - (windowHeight / 2)) / 50;
     headshot.style.transform = `translate(${centerX}px, ${centerY}px)`;
 });
-
-// Heading display animation on load
-setTimeout(() => {
-
-    const heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
-    const heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
-
-    // animation
-    heroTextHeadingOne.style.transform = 'translate(0px)';
-    heroTextHeadingOne.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
-
-    setTimeout(() => {
-        // animation
-        heroTextHeadingTwo.style.transform = 'translate(0px)';
-        heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
-    }, 500);
-}, 200);
