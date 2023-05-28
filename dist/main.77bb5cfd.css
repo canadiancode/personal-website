@@ -17,6 +17,7 @@ blockquote,
 dl,
 dd {
   margin: 0;
+  cursor: default;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -79,26 +80,31 @@ select {
   --light-accent-bg: #E9997F;
   --black: black;
   --white: white;
-  --heading-text-shadow: 0px 0px 0.5vmax black;
+  --section-par-text-color: #97c5ff;
+  --hero-text-shadow: 0px 0px 0.5vmax white;
+  --section-title-text-shadow: 2px 2px 0px var(--ligher-blue-bg), -2px -2px 0px var(--ligher-blue-bg);
+  --par-text-shadow: 2px 2px 3px var(--black);
   --main-header-size: calc(12px + 4vmax);
   --main-header-size-mobile: calc(12px + 3vmax);
   --main-subheader-size: calc(12px + 2vmax);
-  --paragraph-size: 2rem;
+  --paragraph-size: 1.2em;
   --font-main-heading: "Sigmar One", cursive;
   --font-sub-heading: "Hammersmith One", sans-serif;
+  --default-transition-duration: 0.6s ease-out;
 }
 
-.section1 {
+.sectionOne {
   width: 100%;
   height: 100%;
   display: flex;
+  position: relative;
 }
-.section1 .imageTextContainer {
+.sectionOne .imageTextContainer {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
-.section1 .imageTextContainer .heroText {
+.sectionOne .imageTextContainer .heroText {
   position: absolute;
   overflow: hidden;
   z-index: 1;
@@ -109,38 +115,41 @@ select {
   align-items: center;
   top: 20%;
 }
-.section1 .imageTextContainer .heroText h1, .section1 .imageTextContainer .heroText h2 {
+.sectionOne .imageTextContainer .heroText h1, .sectionOne .imageTextContainer .heroText h2 {
   transform: translateY(50px);
   transition: 0.6s ease-out;
-  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
   text-align: center;
   padding: 2rem 2rem;
-  text-shadow: var(--heading-text-shadow);
+  text-shadow: var(--hero-text-shadow);
   white-space: nowrap;
 }
-.section1 .imageTextContainer .heroText h1 {
+.sectionOne .imageTextContainer .heroText h1 {
   font-family: var(--font-main-heading);
   font-size: var(--main-header-size);
   margin-bottom: -2rem;
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  transform: translateY(50px);
 }
 @media screen and (max-width: 300px) {
-  .section1 .imageTextContainer .heroText h1 {
+  .sectionOne .imageTextContainer .heroText h1 {
     font-size: var(--main-header-size-mobile);
   }
 }
-.section1 .imageTextContainer .heroText h2 {
+.sectionOne .imageTextContainer .heroText h2 {
   font-family: var(--font-sub-heading);
   font-size: var(--main-subheader-size);
   margin-top: -1rem;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transform: translateY(-50px);
 }
-.section1 .imageTextContainer .heroImages {
+.sectionOne .imageTextContainer .heroImages {
   width: 100%;
   height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
 }
-.section1 .imageTextContainer .heroImages .heroImg {
+.sectionOne .imageTextContainer .heroImages .heroImg {
   position: absolute;
   object-fit: cover;
   height: 100%;
@@ -148,32 +157,193 @@ select {
   bottom: 0;
   object-position: bottom;
 }
-.section1 .imageTextContainer .heroImages .heroImg1 {
+.sectionOne .imageTextContainer .heroImages .heroImg1 {
   transform: translateY(160px);
   z-index: 3;
 }
 @media screen and (max-width: 1600px) {
-  .section1 .imageTextContainer .heroImages .heroImg1 {
-    transform: translateY(90px);
+  .sectionOne .imageTextContainer .heroImages .heroImg1 {
+    transform: translateY(70px);
   }
 }
-.section1 .imageTextContainer .heroImages .heroImg2 {
+.sectionOne .imageTextContainer .heroImages .heroImg2 {
   transform: translateY(50px);
   z-index: 2;
 }
 @media screen and (max-width: 1600px) {
-  .section1 .imageTextContainer .heroImages .heroImg2 {
+  .sectionOne .imageTextContainer .heroImages .heroImg2 {
     transform: translateY(20px);
   }
 }
 
-.section2 {
-  content: "";
-  height: 100vh;
+.sectionTwo {
+  min-height: 100vh;
   width: 100%;
   background-color: var(--darker-blue-bg);
   z-index: 2;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media screen and (max-width: 1000px) {
+  .sectionTwo {
+    flex-direction: column;
+  }
+}
+.sectionTwo .sectionTwoDiv {
+  width: 100%;
+}
+.sectionTwo .sectionTwoText {
+  padding: 1em 0em 1em 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sectionTwo .sectionTwoText .sectionTwoTextElements {
+  max-width: 70%;
+  margin-top: -4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+@media screen and (max-width: 1200px) {
+  .sectionTwo .sectionTwoText .sectionTwoTextElements {
+    margin-top: -8rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .sectionTwo .sectionTwoText .sectionTwoTextElements {
+    margin-top: 0rem;
+  }
+}
+@media screen and (max-height: 62000px) {
+  .sectionTwo .sectionTwoText .sectionTwoTextElements {
+    margin-top: 0rem;
+  }
+}
+.sectionTwo .sectionTwoText .sectionTwoTextElements h2 {
+  font-family: var(--font-sub-heading);
+  font-size: var(--main-header-size);
+  text-shadow: var(--darker-blue-bg);
+  color: var(--darker-blue-bg);
+  transform: translateY(50px);
+  transition: var(--default-transition-duration);
+  opacity: 0;
+}
+.sectionTwo .sectionTwoText .sectionTwoTextElements p {
+  font-size: var(--paragraph-size);
+  color: var(--section-par-text-color);
+  transition: var(--default-transition-duration);
+  opacity: 0;
+  transform: translateY(50px);
+  text-shadow: var(--par-text-shadow);
+}
+.sectionTwo .sectionTwoImage {
+  padding: 0em 2em 0em 0em;
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  height: 100%;
+  overflow: hidden;
+}
+@media screen and (max-width: 1000px) {
+  .sectionTwo .sectionTwoImage {
+    padding: 2em;
+    padding-top: 0em;
+    display: flex;
+    justify-content: center;
+  }
+}
+.sectionTwo .sectionTwoImage div {
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+.sectionTwo .sectionTwoImage div img {
+  height: 100%;
+  width: 100%;
+  max-width: 600px;
+  object-fit: cover;
+  margin: 0 auto;
+  position: absolute;
+  overflow: hidden;
+}
+@media screen and (max-width: 1000px) {
+  .sectionTwo .sectionTwoImage div img {
+    padding: 0em;
+  }
+}
+.sectionTwo .sectionTwoImage div .headshotOutline {
+  object-fit: fill;
+  box-shadow: 24px 24px 0px 10px var(--darker-blue-bg), -24px -24px 0px 10px var(--darker-blue-bg), 24px -24px 0px 10px var(--darker-blue-bg);
+}
+.sectionTwo .mole {
+  position: absolute;
+  width: 25vw;
+  transform: translateY(-50px);
+}
+.sectionTwo .bedrock {
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 70vw;
+  transform: translateY(0rem);
+  padding-right: 1rem;
+}
+@media screen and (max-width: 1000px) {
+  .sectionTwo .bedrock {
+    display: none;
+  }
+}
+.sectionTwo .bedrockMobile {
+  display: none;
+  position: absolute;
+  top: 15%;
+  z-index: -1;
+  width: 100vw;
+  transform: translateY(0rem);
+}
+@media screen and (max-width: 1000px) {
+  .sectionTwo .bedrockMobile {
+    display: block;
+  }
+}
+@media screen and (max-width: 800px) {
+  .sectionTwo .bedrockMobile {
+    top: 23%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sectionTwo .bedrockMobile {
+    top: 30%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .sectionTwo .bedrockMobile {
+    top: 37%;
+  }
+}
+@media screen and (max-width: 350px) {
+  .sectionTwo .bedrockMobile {
+    top: 47%;
+  }
+}
+@media screen and (max-width: 300px) {
+  .sectionTwo .bedrockMobile {
+    top: 51%;
+  }
+}
+
+.sectionThree {
+  content: "";
+  height: 100vh;
+  width: 100%;
+  background-color: var(--darker-blue-bg);
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

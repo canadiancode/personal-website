@@ -177,7 +177,7 @@ document.addEventListener('scroll', function (e) {
     // moon
     moon.style.transform = "translateY(".concat(moonAnimation, "px)");
   } else {
-    var _imageOneOriginalHeight = 90;
+    var _imageOneOriginalHeight = 70;
     var _imageTwoOriginalHeight = 20;
 
     // layer 1
@@ -204,6 +204,14 @@ document.addEventListener('scroll', function (e) {
     moon.style.transform = "translateY(".concat(moonAnimation, "px)");
   }
 
+  // gap filler for edge case scrolling from hero section
+  var sectionTwo = document.querySelector('.sectionTwo');
+  if (boundingClientRect.y < -200) {
+    sectionTwo.style.boxShadow = '15px 0px 0px 20px var(--darker-blue-bg)';
+  } else {
+    sectionTwo.style.boxShadow = '0px 0px 0px 0px var(--darker-blue-bg)';
+  }
+
   // heading text scroll, color and opacity animation
   var heroText = document.querySelector('.heroText');
   var heroTextScroll = boundingClientRect.y * -1;
@@ -226,8 +234,8 @@ document.addEventListener('scroll', function (e) {
   heroTextEl.forEach(function (text) {
     text.style.color = "rgb(".concat(redColor, ", ").concat(greenColor, ", ").concat(blueColor, ")");
     text.style.letterSpacing = "".concat(heroTextScroll / 70, "px");
-    if (heroTextScroll / 200 > 1) {
-      text.style.transform = "scale(".concat(heroTextScroll / 200, ")");
+    if (heroTextScroll / 300 > 1) {
+      text.style.transform = "scale(".concat(heroTextScroll / 300, ")");
     } else {
       text.style.transform = "scale(1)";
     }
@@ -237,19 +245,68 @@ document.addEventListener('scroll', function (e) {
   } else {
     heroText.style.display = 'flex';
   }
+
+  // about us text parralax effect
+  var topOfSectionTwo = document.querySelector('.sectionTwoText');
+  var rocksGetBoundingClientRect = topOfSectionTwo.getBoundingClientRect();
+  var aboutUsTextParallaxValue = rocksGetBoundingClientRect.y / 8 - 100;
+  topOfSectionTwo.style.transform = "translateY(".concat(aboutUsTextParallaxValue, "px)");
+
+  // mole and bedrock parallax
+  var bedrock = document.querySelector('.bedrock');
+  var bedrockParallaxValue = heroTextScroll / 20;
+  bedrock.style.transform = "translateY(".concat(bedrockParallaxValue, "px)");
+  var mole = document.querySelector('.mole');
+  var moleParallaxValue = (50 + heroTextScroll / 20) * -1;
+  mole.style.transform = "translateY(".concat(moleParallaxValue, "px)");
+
+  // about us intersection observer
+  var headshotOutline = document.querySelector('.sectionTwoTextElements');
+  var intersectionObserverOptions = {
+    rootMargin: "0px",
+    threshold: 0.6
+  };
+  var textIntersectionObserver = new IntersectionObserver(function (entries, textIntersectionObserver) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        var aboutUsHeading = document.querySelector('.aboutUsHeading');
+        aboutUsHeading.style.color = 'var(--black)';
+        aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
+        aboutUsHeading.style.transform = 'translateY(0px)';
+        aboutUsHeading.style.opacity = '1';
+        var aboutUsPar = document.querySelector('.aboutUsPar');
+        setTimeout(function () {
+          aboutUsPar.style.color = 'var(--section-par-text-color)';
+          aboutUsPar.style.transform = 'translateY(0px)';
+          aboutUsPar.style.opacity = '1';
+        }, 300);
+      }
+    });
+  }, intersectionObserverOptions);
+  textIntersectionObserver.observe(headshotOutline);
 });
 
 // Hero text mouse move aniation
 document.addEventListener('mousemove', function (e) {
+  // hero section
   var heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
   var heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
   var windowWidth = window.innerWidth;
+  var windowHeight = window.innerHeight;
   var clientX = e.clientX;
   var centerPx = clientX - windowWidth / 2;
   var mainHeadingValue = centerPx / 25;
   var subHeadingValue = centerPx / 80;
   heroTextHeadingOne.style.transform = "translateX(".concat(mainHeadingValue, "px)");
   heroTextHeadingTwo.style.transform = "translateX(".concat(subHeadingValue, "px)");
+
+  // about us section
+  var headshot = document.querySelector('.headshot');
+  var headshotClientX = e.clientX;
+  var headshotClientY = e.clientY;
+  var centerX = (headshotClientX - windowWidth / 2) / 50;
+  var centerY = (headshotClientY - windowHeight / 2) / 50;
+  headshot.style.transform = "translate(".concat(centerX, "px, ").concat(centerY, "px)");
 });
 
 // Heading display animation on load
@@ -291,7 +348,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65000" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55724" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

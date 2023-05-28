@@ -59,7 +59,7 @@ document.addEventListener('scroll', (e) => {
         moon.style.transform = `translateY(${moonAnimation}px)`;
 
     } else {
-        const imageOneOriginalHeight = 90;
+        const imageOneOriginalHeight = 70;
         const imageTwoOriginalHeight = 20;
 
         // layer 1
@@ -84,6 +84,14 @@ document.addEventListener('scroll', (e) => {
 
         // moon
         moon.style.transform = `translateY(${moonAnimation}px)`;
+    }
+
+    // gap filler for edge case scrolling from hero section
+    const sectionTwo = document.querySelector('.sectionTwo');
+    if (boundingClientRect.y < -200) {
+        sectionTwo.style.boxShadow = '15px 0px 0px 20px var(--darker-blue-bg)';
+    } else {
+        sectionTwo.style.boxShadow = '0px 0px 0px 0px var(--darker-blue-bg)';
     }
 
     // heading text scroll, color and opacity animation
@@ -111,9 +119,9 @@ document.addEventListener('scroll', (e) => {
     heroTextEl.forEach(text => {
         text.style.color = `rgb(${redColor}, ${greenColor}, ${blueColor})`;
         text.style.letterSpacing = `${(heroTextScroll / 70)}px`;
-        
-        if ((heroTextScroll / 200) > 1) {
-            text.style.transform = `scale(${(heroTextScroll / 200)})`;
+
+        if ((heroTextScroll / 300) > 1) {
+            text.style.transform = `scale(${(heroTextScroll / 300)})`;
         } else {
             text.style.transform = `scale(1)`;
         }
@@ -126,22 +134,72 @@ document.addEventListener('scroll', (e) => {
         heroText.style.display = 'flex';
     }
 
+    // about us text parralax effect
+    const topOfSectionTwo = document.querySelector('.sectionTwoText');
+    let rocksGetBoundingClientRect = topOfSectionTwo.getBoundingClientRect();
+    let aboutUsTextParallaxValue = (rocksGetBoundingClientRect.y / 8) - 100;
+    topOfSectionTwo.style.transform = `translateY(${aboutUsTextParallaxValue}px)`;
+
+    // mole and bedrock parallax
+    const bedrock = document.querySelector('.bedrock');
+    let bedrockParallaxValue = heroTextScroll / 20;
+    bedrock.style.transform = `translateY(${bedrockParallaxValue}px)`;
+    const mole = document.querySelector('.mole');
+    let moleParallaxValue = (50 + (heroTextScroll / 20)) * -1;
+    mole.style.transform = `translateY(${moleParallaxValue}px)`;
+
+    // about us intersection observer
+    const headshotOutline = document.querySelector('.sectionTwoTextElements');
+    const intersectionObserverOptions = {
+        rootMargin: "0px",
+        threshold: 0.6
+    }
+    const textIntersectionObserver = new IntersectionObserver(function(entries, textIntersectionObserver) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const aboutUsHeading = document.querySelector('.aboutUsHeading');
+                aboutUsHeading.style.color = 'var(--black)';
+                aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
+                aboutUsHeading.style.transform = 'translateY(0px)';
+                aboutUsHeading.style.opacity = '1';
+
+                const aboutUsPar = document.querySelector('.aboutUsPar');
+                setTimeout(() => {
+                    aboutUsPar.style.color = 'var(--section-par-text-color)';
+                    aboutUsPar.style.transform = 'translateY(0px)';
+                    aboutUsPar.style.opacity = '1';
+                }, 300);
+            }
+        })
+    }, intersectionObserverOptions);
+    textIntersectionObserver.observe(headshotOutline);
+
 });
 
 // Hero text mouse move aniation
 document.addEventListener('mousemove', (e) => {
 
+    // hero section
     const heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
     const heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
 
     let windowWidth = window.innerWidth;
+    let windowHeight = window.innerHeight;
     let clientX = e.clientX;
     let centerPx = clientX - (windowWidth / 2);
     let mainHeadingValue = centerPx / 25;
     let subHeadingValue = centerPx / 80;
     heroTextHeadingOne.style.transform = `translateX(${mainHeadingValue}px)`;
     heroTextHeadingTwo.style.transform = `translateX(${subHeadingValue}px)`;
-})
+
+    // about us section
+    const headshot = document.querySelector('.headshot');
+    let headshotClientX = e.clientX;
+    let headshotClientY = e.clientY;
+    let centerX = (headshotClientX - (windowWidth / 2)) / 50;
+    let centerY = (headshotClientY - (windowHeight / 2)) / 50;
+    headshot.style.transform = `translate(${centerX}px, ${centerY}px)`;
+});
 
 // Heading display animation on load
 setTimeout(() => {
