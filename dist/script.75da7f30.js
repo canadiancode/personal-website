@@ -130,6 +130,10 @@ setTimeout(function () {
     // animation
     heroTextHeadingTwo.style.transform = 'translate(0px)';
     heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+    setTimeout(function () {
+      heroTextHeadingOne.style.transition = '0s';
+      heroTextHeadingTwo.style.transition = '0s';
+    }, 600);
   }, 500);
 }, 200);
 
@@ -304,16 +308,19 @@ document.addEventListener('scroll', function (e) {
 // mouse move aniation
 document.addEventListener('mousemove', function (e) {
   // hero section
+  var heroTextShadowColor = 'var(--darker-blue-bg)';
   var heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
   var heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
   var windowWidth = window.innerWidth;
   var windowHeight = window.innerHeight;
   var clientX = e.clientX;
-  var centerPx = clientX - windowWidth / 2;
-  var mainHeadingValue = centerPx / 25;
-  var subHeadingValue = centerPx / 80;
-  heroTextHeadingOne.style.transform = "translateX(".concat(mainHeadingValue, "px)");
-  heroTextHeadingTwo.style.transform = "translateX(".concat(subHeadingValue, "px)");
+  var clientY = e.clientY;
+  var centerWidthPx = clientX - windowWidth / 2;
+  var centerHeightPx = clientY - windowHeight / 2;
+  var heroHeadingTextShadowY = centerHeightPx / 80;
+  var heroHeadingTextShadowX = centerWidthPx / 120;
+  heroTextHeadingOne.style.textShadow = "".concat(heroHeadingTextShadowX, "px ").concat(heroHeadingTextShadowY + 8, "px 12px ").concat(heroTextShadowColor);
+  heroTextHeadingTwo.style.textShadow = "".concat(heroHeadingTextShadowX * 0.6, "px ").concat((heroHeadingTextShadowY + 4) * 0.6, "px 8px ").concat(heroTextShadowColor);
 
   // about us section
   var headshot = document.querySelector('.headshot');
@@ -348,7 +355,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55724" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63111" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

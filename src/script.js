@@ -12,6 +12,10 @@ setTimeout(() => {
         // animation
         heroTextHeadingTwo.style.transform = 'translate(0px)';
         heroTextHeadingTwo.style.clipPath = 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)';
+        setTimeout(() => {
+            heroTextHeadingOne.style.transition = '0s';
+            heroTextHeadingTwo.style.transition = '0s';
+        }, 600);
     }, 500);
 }, 200);
 
@@ -197,17 +201,20 @@ document.addEventListener('scroll', (e) => {
 document.addEventListener('mousemove', (e) => {
 
     // hero section
+    const heroTextShadowColor = 'var(--darker-blue-bg)';
     const heroTextHeadingOne = document.querySelector('.heroTextHeadingOne');
     const heroTextHeadingTwo = document.querySelector('.heroTextHeadingTwo');
-
     let windowWidth = window.innerWidth;
     let windowHeight = window.innerHeight;
     let clientX = e.clientX;
-    let centerPx = clientX - (windowWidth / 2);
-    let mainHeadingValue = centerPx / 25;
-    let subHeadingValue = centerPx / 80;
-    heroTextHeadingOne.style.transform = `translateX(${mainHeadingValue}px)`;
-    heroTextHeadingTwo.style.transform = `translateX(${subHeadingValue}px)`;
+    let clientY = e.clientY;
+    let centerWidthPx = clientX - (windowWidth / 2);
+    let centerHeightPx = clientY - (windowHeight / 2);
+    let heroHeadingTextShadowY = centerHeightPx / 80;
+    let heroHeadingTextShadowX = centerWidthPx / 120;
+    heroTextHeadingOne.style.textShadow = `${heroHeadingTextShadowX}px ${heroHeadingTextShadowY + 8}px 12px ${heroTextShadowColor}`;
+    heroTextHeadingTwo.style.textShadow = `${heroHeadingTextShadowX * 0.6}px ${(heroHeadingTextShadowY + 4) * 0.6}px 8px ${heroTextShadowColor}`;
+
 
     // about us section
     const headshot = document.querySelector('.headshot');

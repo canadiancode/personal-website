@@ -81,14 +81,14 @@ select {
   --black: black;
   --white: white;
   --section-par-text-color: #97c5ff;
-  --hero-text-shadow: 0px 0px 0.5vmax white;
   --section-title-text-shadow: 2px 2px 0px var(--ligher-blue-bg), -2px -2px 0px var(--ligher-blue-bg);
   --par-text-shadow: 2px 2px 3px var(--black);
+  --hero-text-shadow: 0px 4px 12px black;
   --main-header-size: calc(12px + 4vmax);
   --main-header-size-mobile: calc(12px + 3vmax);
   --main-subheader-size: calc(12px + 2vmax);
   --paragraph-size: 1.2em;
-  --font-main-heading: "Sigmar One", cursive;
+  --font-main-heading: "Rowdies", cursive;
   --font-sub-heading: "Hammersmith One", sans-serif;
   --default-transition-duration: 0.6s ease-out;
 }
@@ -107,7 +107,7 @@ select {
 .sectionOne .imageTextContainer .heroText {
   position: absolute;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
   height: 100%;
   display: flex;
@@ -117,11 +117,12 @@ select {
 }
 .sectionOne .imageTextContainer .heroText h1, .sectionOne .imageTextContainer .heroText h2 {
   transform: translateY(50px);
-  transition: 0.6s ease-out;
+  transition: var(--default-transition-duration);
   text-align: center;
   padding: 2rem 2rem;
   text-shadow: var(--hero-text-shadow);
   white-space: nowrap;
+  color: var(--black);
 }
 .sectionOne .imageTextContainer .heroText h1 {
   font-family: var(--font-main-heading);
@@ -344,6 +345,117 @@ select {
   height: 100vh;
   width: 100%;
   background-color: var(--darker-blue-bg);
+  overflow: hidden;
+}
+.sectionThree .railroadContainer {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0rem 0rem 0rem;
+  transform: rotate(1.5deg) scale(1.01);
+  position: relative;
+}
+.sectionThree .railroadContainer .railroadTrack {
+  min-height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.sectionThree .railroadContainer .htmlCart {
+  position: absolute;
+  bottom: 0%;
+  height: 19vmax;
+  animation: moveCart 20s infinite linear;
+}
+.sectionThree .railroadContainer .htmlCartWheel {
+  animation: cartWheel 20s infinite linear;
+}
+.sectionThree .railroadContainer .cssCart {
+  position: absolute;
+  bottom: 0%;
+  left: -20%;
+  height: 19vmax;
+  animation: moveCart 20s infinite linear;
+  animation-delay: 2s;
+}
+.sectionThree .railroadContainer .cssCartWheel {
+  animation: cartWheel 20s infinite linear;
+  animation-delay: 2s;
+  left: -20%;
+}
+.sectionThree .railroadContainer .jsCart {
+  position: absolute;
+  bottom: 0%;
+  left: -20%;
+  height: 19vmax;
+  animation: moveCart 20s infinite linear;
+  animation-delay: 4s;
+}
+.sectionThree .railroadContainer .jsCartWheel {
+  animation: cartWheel 20s infinite linear;
+  animation-delay: 4s;
+  left: -20%;
+}
+.sectionThree .railroadContainer .nodeCart {
+  position: absolute;
+  bottom: 0%;
+  left: -20%;
+  height: 19vmax;
+  animation: moveCart 20s infinite linear;
+  animation-delay: 6s;
+}
+.sectionThree .railroadContainer .nodeCartWheel {
+  animation: cartWheel 20s infinite linear;
+  animation-delay: 6s;
+  left: -20%;
+}
+.sectionThree .railroadContainer .vueCart {
+  position: absolute;
+  bottom: 0%;
+  left: -20%;
+  height: 19vmax;
+  animation: moveCart 20s infinite linear;
+  animation-delay: 8s;
+}
+.sectionThree .railroadContainer .vueCartWheel {
+  animation: cartWheel 20s infinite linear;
+  animation-delay: 8s;
+  left: -20%;
+}
+.sectionThree .railroadContainer .herokuCart {
+  position: absolute;
+  bottom: 0%;
+  left: -20%;
+  height: 19vmax;
+  animation: moveCart 20s infinite linear;
+  animation-delay: 10s;
+}
+.sectionThree .railroadContainer .herokuCartWheel {
+  animation: cartWheel 20s infinite linear;
+  animation-delay: 10s;
+  left: -20%;
+}
+@keyframes moveCart {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 120%;
+  }
+}
+.sectionThree .railroadContainer .leftWheel {
+  transform-origin: 32% 85%;
+}
+.sectionThree .railroadContainer .rightWheel {
+  transform-origin: 67% 85%;
+}
+@keyframes cartWheel {
+  0% {
+    transform: rotate(0deg);
+    left: -20%;
+  }
+  100% {
+    transform: rotate(5000deg);
+    left: 120%;
+  }
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
