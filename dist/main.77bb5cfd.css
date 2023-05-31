@@ -359,6 +359,20 @@ select {
   width: 100%;
   object-fit: cover;
 }
+.sectionThree .railroadContainer .railroadTrackDesktop {
+  display: block;
+}
+.sectionThree .railroadContainer .railroadTrackMobile {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .sectionThree .railroadContainer .railroadTrackDesktop {
+    display: none;
+  }
+  .sectionThree .railroadContainer .railroadTrackMobile {
+    display: block;
+  }
+}
 .sectionThree .railroadContainer .htmlCart {
   position: absolute;
   bottom: 0%;
@@ -374,11 +388,11 @@ select {
   left: -20%;
   height: 19vmax;
   animation: moveCart 20s infinite linear;
-  animation-delay: 2s;
+  animation-delay: 3s;
 }
 .sectionThree .railroadContainer .cssCartWheel {
   animation: cartWheel 20s infinite linear;
-  animation-delay: 2s;
+  animation-delay: 3s;
   left: -20%;
 }
 .sectionThree .railroadContainer .jsCart {
@@ -387,11 +401,11 @@ select {
   left: -20%;
   height: 19vmax;
   animation: moveCart 20s infinite linear;
-  animation-delay: 4s;
+  animation-delay: 6s;
 }
 .sectionThree .railroadContainer .jsCartWheel {
   animation: cartWheel 20s infinite linear;
-  animation-delay: 4s;
+  animation-delay: 6s;
   left: -20%;
 }
 .sectionThree .railroadContainer .nodeCart {
@@ -400,11 +414,11 @@ select {
   left: -20%;
   height: 19vmax;
   animation: moveCart 20s infinite linear;
-  animation-delay: 6s;
+  animation-delay: 9s;
 }
 .sectionThree .railroadContainer .nodeCartWheel {
   animation: cartWheel 20s infinite linear;
-  animation-delay: 6s;
+  animation-delay: 9s;
   left: -20%;
 }
 .sectionThree .railroadContainer .vueCart {
@@ -413,11 +427,11 @@ select {
   left: -20%;
   height: 19vmax;
   animation: moveCart 20s infinite linear;
-  animation-delay: 8s;
+  animation-delay: 12s;
 }
 .sectionThree .railroadContainer .vueCartWheel {
   animation: cartWheel 20s infinite linear;
-  animation-delay: 8s;
+  animation-delay: 12s;
   left: -20%;
 }
 .sectionThree .railroadContainer .herokuCart {
@@ -426,11 +440,11 @@ select {
   left: -20%;
   height: 19vmax;
   animation: moveCart 20s infinite linear;
-  animation-delay: 10s;
+  animation-delay: 15s;
 }
 .sectionThree .railroadContainer .herokuCartWheel {
   animation: cartWheel 20s infinite linear;
-  animation-delay: 10s;
+  animation-delay: 15s;
   left: -20%;
 }
 @keyframes moveCart {

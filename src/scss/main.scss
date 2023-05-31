@@ -387,6 +387,20 @@ select {
       width: 100%;
       object-fit: cover;
     }
+    .railroadTrackDesktop {
+      display: block;
+    }
+    .railroadTrackMobile {
+      display: none;
+    }
+    @media screen and (max-width: 700px) {
+      .railroadTrackDesktop {
+        display: none;
+      }
+      .railroadTrackMobile {
+        display: block;
+      }
+    }
     .htmlCart {
       position: absolute;
       bottom: 0%;
@@ -402,11 +416,11 @@ select {
       left: -20%;
       height: 19vmax;
       animation: moveCart 20s infinite linear;
-      animation-delay: 2s;
+      animation-delay: 3s;
     }
     .cssCartWheel {
       animation: cartWheel 20s infinite linear;
-      animation-delay: 2s;
+      animation-delay: 3s;
       left: -20%;
     }
     .jsCart {
@@ -415,11 +429,11 @@ select {
       left: -20%;
       height: 19vmax;
       animation: moveCart 20s infinite linear;
-      animation-delay: 4s;
+      animation-delay: 6s;
     }
     .jsCartWheel {
       animation: cartWheel 20s infinite linear;
-      animation-delay: 4s;
+      animation-delay: 6s;
       left: -20%;
     }
     .nodeCart {
@@ -428,11 +442,11 @@ select {
       left: -20%;
       height: 19vmax;
       animation: moveCart 20s infinite linear;
-      animation-delay: 6s;
+      animation-delay: 9s;
     }
     .nodeCartWheel {
       animation: cartWheel 20s infinite linear;
-      animation-delay: 6s;
+      animation-delay: 9s;
       left: -20%;
     }
     .vueCart {
@@ -441,11 +455,11 @@ select {
       left: -20%;
       height: 19vmax;
       animation: moveCart 20s infinite linear;
-      animation-delay: 8s;
+      animation-delay: 12s;
     }
     .vueCartWheel {
       animation: cartWheel 20s infinite linear;
-      animation-delay: 8s;
+      animation-delay: 12s;
       left: -20%;
     }
     .herokuCart {
@@ -454,11 +468,11 @@ select {
       left: -20%;
       height: 19vmax;
       animation: moveCart 20s infinite linear;
-      animation-delay: 10s;
+      animation-delay: 15s;
     }
     .herokuCartWheel {
       animation: cartWheel 20s infinite linear;
-      animation-delay: 10s;
+      animation-delay: 15s;
       left: -20%;
     }
     @keyframes moveCart {
