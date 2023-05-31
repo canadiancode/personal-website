@@ -97,11 +97,13 @@ select {
     --main-header-size: calc(12px + 4vmax);
     --main-header-size-mobile: calc(12px + 3vmax);
     --main-subheader-size: calc(12px + 2vmax);
+    --main-subheader-handwriting-size: calc(12px + 3vmax);
     --paragraph-size: 1.2em;
 
     // font family
     --font-main-heading: 'Rowdies', cursive;
     --font-sub-heading: 'Hammersmith One', sans-serif;
+    --font-hand-writing: 'Dancing Script', cursive;
 
     // transition durations:
     --default-transition-duration: 0.6s ease-out;
@@ -131,7 +133,7 @@ select {
           display: flex;
           flex-direction: column;
           align-items: center;
-          top: 20%;
+          top: 15%;
           h1, h2 {
             transform: translateY(50px);
             transition: var(--default-transition-duration);
@@ -159,6 +161,10 @@ select {
             margin-top: -1rem;
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             transform: translateY(-50px);
+            span {
+              font-family: var(--font-hand-writing);
+              font-size: var(--main-subheader-handwriting-size);
+            }
           }
         }
         .heroImages {
@@ -513,19 +519,35 @@ select {
 .sectionFour {
   width: 100%;
   background-color: var(--darker-blue-bg);
-
-  .projectOne {
+  .project {
     width: 100%;
     display: flex;
-    .sectionFourLeft {
+    flex-direction: row;
+    @media screen and (max-width: 1000px) {
+      flex-direction: column;
+    }
+    .sectionFourImg {
       width: 100%;
-      padding: 2rem;
-      .projectOneSvg {
+      padding: 1rem;
+      div {
         width: 100%;
+        height: 100%;
+        position: relative;
+        .projectCover {
+          width: 100%;
+        }
+        .overlay {
+          position: absolute;
+          top: 0;
+        }
       }
     }
-    .sectionFourRight {
+    .sectionFourText {
       width: 100%;
+      padding: 1rem;
     }
+  }
+  .projectOne {
+    width: 100%;
   }
 }

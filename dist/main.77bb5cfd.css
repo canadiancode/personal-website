@@ -87,9 +87,11 @@ select {
   --main-header-size: calc(12px + 4vmax);
   --main-header-size-mobile: calc(12px + 3vmax);
   --main-subheader-size: calc(12px + 2vmax);
+  --main-subheader-handwriting-size: calc(12px + 3vmax);
   --paragraph-size: 1.2em;
   --font-main-heading: "Rowdies", cursive;
   --font-sub-heading: "Hammersmith One", sans-serif;
+  --font-hand-writing: "Dancing Script", cursive;
   --default-transition-duration: 0.6s ease-out;
 }
 
@@ -114,7 +116,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 20%;
+  top: 15%;
 }
 .sectionOne .imageTextContainer .heroText h1, .sectionOne .imageTextContainer .heroText h2 {
   transform: translateY(50px);
@@ -143,6 +145,10 @@ select {
   margin-top: -1rem;
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   transform: translateY(-50px);
+}
+.sectionOne .imageTextContainer .heroText h2 span {
+  font-family: var(--font-hand-writing);
+  font-size: var(--main-subheader-handwriting-size);
 }
 .sectionOne .imageTextContainer .heroImages {
   width: 100%;
@@ -484,18 +490,37 @@ select {
   width: 100%;
   background-color: var(--darker-blue-bg);
 }
-.sectionFour .projectOne {
+.sectionFour .project {
   width: 100%;
   display: flex;
+  flex-direction: row;
 }
-.sectionFour .projectOne .sectionFourLeft {
+@media screen and (max-width: 1000px) {
+  .sectionFour .project {
+    flex-direction: column;
+  }
+}
+.sectionFour .project .sectionFourImg {
   width: 100%;
-  padding: 2rem;
+  padding: 1rem;
 }
-.sectionFour .projectOne .sectionFourLeft .projectOneSvg {
+.sectionFour .project .sectionFourImg div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.sectionFour .project .sectionFourImg div .projectCover {
   width: 100%;
 }
-.sectionFour .projectOne .sectionFourRight {
+.sectionFour .project .sectionFourImg div .overlay {
+  position: absolute;
+  top: 0;
+}
+.sectionFour .project .sectionFourText {
+  width: 100%;
+  padding: 1rem;
+}
+.sectionFour .projectOne {
   width: 100%;
 }
 
