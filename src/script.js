@@ -224,3 +224,5 @@ document.addEventListener('mousemove', (e) => {
     let centerY = (headshotClientY - (windowHeight / 2)) / 50;
     headshot.style.transform = `translate(${centerX}px, ${centerY}px)`;
 });
+
+// svg portfolio animations
