@@ -331,7 +331,171 @@ document.addEventListener('mousemove', function (e) {
   headshot.style.transform = "translate(".concat(centerX, "px, ").concat(centerY, "px)");
 });
 
-// svg portfolio animations
+// Portfolio Image Display Animation 
+var portfolioProjectOptions = {
+  threshold: 1,
+  rootMargin: "-5px"
+};
+
+// Portfolio Project 1
+var projectOneCover = document.querySelector('.projectOneCover');
+var projectImageOneObserver = new IntersectionObserver(function (entries, projectImageObserver) {
+  entries.forEach(function (entry) {
+    var bones = document.querySelector('.learnEarnBones');
+    var layerOne = document.querySelector('.learnEarnProjectOne');
+    var layerTwo = document.querySelector('.learnEarnProjectTwo');
+    if (entry.isIntersecting) {
+      bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+      setTimeout(function () {
+        layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+        layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+        bones.style.display = 'none';
+        setTimeout(function () {
+          layerOne.style.transition = '0.5s linear';
+          layerTwo.style.transition = '0.5s linear';
+          document.addEventListener('mousemove', function (event) {
+            var boundingClient = projectOneCover.getBoundingClientRect();
+            var clientX = event.clientX;
+            var clientY = event.clientY;
+
+            // X axis
+            var boundingClientFromRight = boundingClient.x;
+            var boundingClientWidth = boundingClient.width;
+            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
+
+            // Y axis
+            var boundingClientFromTop = boundingClient.y;
+            var boundingClientHeight = boundingClient.height;
+            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
+            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
+            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
+          });
+        }, 500);
+      }, 500);
+    }
+  });
+}, portfolioProjectOptions);
+projectImageOneObserver.observe(projectOneCover);
+
+// Portfolio Project 2
+var projectTwoCover = document.querySelector('.projectTwoCover');
+var projectImageTwoObserver = new IntersectionObserver(function (entries, projectImageObserver) {
+  entries.forEach(function (entry) {
+    var bones = document.querySelector('.TwitterBones');
+    var layerOne = document.querySelector('.TwitterProjectOne');
+    var layerTwo = document.querySelector('.TwitterProjectTwo');
+    if (entry.isIntersecting) {
+      bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+      setTimeout(function () {
+        layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+        layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+        bones.style.display = 'none';
+        setTimeout(function () {
+          layerOne.style.transition = '0.5s linear';
+          layerTwo.style.transition = '0.5s linear';
+          document.addEventListener('mousemove', function (event) {
+            var boundingClient = projectTwoCover.getBoundingClientRect();
+            var clientX = event.clientX;
+            var clientY = event.clientY;
+
+            // X axis
+            var boundingClientFromRight = boundingClient.x;
+            var boundingClientWidth = boundingClient.width;
+            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
+
+            // Y axis
+            var boundingClientFromTop = boundingClient.y;
+            var boundingClientHeight = boundingClient.height;
+            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
+            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
+            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
+          });
+        }, 500);
+      }, 500);
+    }
+  });
+}, portfolioProjectOptions);
+projectImageTwoObserver.observe(projectTwoCover);
+
+// Portfolio Project 3
+var projectThreeCover = document.querySelector('.projectThreeCover');
+var projectImageThreeObserver = new IntersectionObserver(function (entries, projectImageObserver) {
+  entries.forEach(function (entry) {
+    var bones = document.querySelector('.vmmBones');
+    var layerOne = document.querySelector('.vmmProjectOne');
+    var layerTwo = document.querySelector('.vmmProjectTwo');
+    if (entry.isIntersecting) {
+      bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+      setTimeout(function () {
+        layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+        layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+        bones.style.display = 'none';
+        setTimeout(function () {
+          layerOne.style.transition = '0.5s linear';
+          layerTwo.style.transition = '0.5s linear';
+          document.addEventListener('mousemove', function (event) {
+            var boundingClient = projectThreeCover.getBoundingClientRect();
+            var clientX = event.clientX;
+            var clientY = event.clientY;
+
+            // X axis
+            var boundingClientFromRight = boundingClient.x;
+            var boundingClientWidth = boundingClient.width;
+            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
+
+            // Y axis
+            var boundingClientFromTop = boundingClient.y;
+            var boundingClientHeight = boundingClient.height;
+            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
+            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
+            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
+          });
+        }, 500);
+      }, 500);
+    }
+  });
+}, portfolioProjectOptions);
+projectImageThreeObserver.observe(projectThreeCover);
+
+// Portfolio Project 3
+var projectFourCover = document.querySelector('.projectFourCover');
+var projectImageFourObserver = new IntersectionObserver(function (entries, projectImageObserver) {
+  entries.forEach(function (entry) {
+    var bones = document.querySelector('.algoBones');
+    var layerOne = document.querySelector('.algoProjectOne');
+    var layerTwo = document.querySelector('.algoProjectTwo');
+    if (entry.isIntersecting) {
+      bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+      setTimeout(function () {
+        layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+        layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+        bones.style.display = 'none';
+        setTimeout(function () {
+          layerOne.style.transition = '0.5s linear';
+          layerTwo.style.transition = '0.5s linear';
+          document.addEventListener('mousemove', function (event) {
+            var boundingClient = projectFourCover.getBoundingClientRect();
+            var clientX = event.clientX;
+            var clientY = event.clientY;
+
+            // X axis
+            var boundingClientFromRight = boundingClient.x;
+            var boundingClientWidth = boundingClient.width;
+            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
+
+            // Y axis
+            var boundingClientFromTop = boundingClient.y;
+            var boundingClientHeight = boundingClient.height;
+            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
+            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
+            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
+          });
+        }, 500);
+      }, 500);
+    }
+  });
+}, portfolioProjectOptions);
+projectImageFourObserver.observe(projectFourCover);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -357,7 +521,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49944" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51864" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

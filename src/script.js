@@ -225,4 +225,201 @@ document.addEventListener('mousemove', (e) => {
     headshot.style.transform = `translate(${centerX}px, ${centerY}px)`;
 });
 
-// svg portfolio animations
+// Portfolio Image Display Animation 
+const portfolioProjectOptions = {
+    threshold: 1,
+    rootMargin: "-5px"
+}
+
+    // Portfolio Project 1
+const projectOneCover = document.querySelector('.projectOneCover');
+const projectImageOneObserver = new IntersectionObserver(function(entries, projectImageObserver) {
+    entries.forEach(entry => {
+
+        const bones = document.querySelector('.learnEarnBones');
+        const layerOne = document.querySelector('.learnEarnProjectOne');
+        const layerTwo = document.querySelector('.learnEarnProjectTwo');
+
+        if (entry.isIntersecting) {
+            bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+            setTimeout(() => {
+                layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+                layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+                bones.style.display = 'none';
+
+                setTimeout(() => {
+
+                    layerOne.style.transition = '0.5s linear';
+                    layerTwo.style.transition = '0.5s linear';
+
+                    document.addEventListener('mousemove', (event) => {
+    
+                        let boundingClient = projectOneCover.getBoundingClientRect();
+                        let clientX = event.clientX;
+                        let clientY = event.clientY;
+                    
+                        // X axis
+                        let boundingClientFromRight = boundingClient.x;
+                        let boundingClientWidth = boundingClient.width;
+                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
+                    
+                        // Y axis
+                        let boundingClientFromTop = boundingClient.y;
+                        let boundingClientHeight = boundingClient.height;
+                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
+                    
+                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
+                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
+
+                    });
+                }, 500);
+            }, 500);
+        }
+    })
+}, portfolioProjectOptions);
+projectImageOneObserver.observe(projectOneCover);
+
+    // Portfolio Project 2
+const projectTwoCover = document.querySelector('.projectTwoCover');
+const projectImageTwoObserver = new IntersectionObserver(function(entries, projectImageObserver) {
+    entries.forEach(entry => {
+
+        const bones = document.querySelector('.TwitterBones');
+        const layerOne = document.querySelector('.TwitterProjectOne');
+        const layerTwo = document.querySelector('.TwitterProjectTwo');
+
+        if (entry.isIntersecting) {
+            bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+            setTimeout(() => {
+                layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+                layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+                bones.style.display = 'none';
+
+                setTimeout(() => {
+
+                    layerOne.style.transition = '0.5s linear';
+                    layerTwo.style.transition = '0.5s linear';
+
+                    document.addEventListener('mousemove', (event) => {
+    
+                        let boundingClient = projectTwoCover.getBoundingClientRect();
+                        let clientX = event.clientX;
+                        let clientY = event.clientY;
+                    
+                        // X axis
+                        let boundingClientFromRight = boundingClient.x;
+                        let boundingClientWidth = boundingClient.width;
+                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
+                    
+                        // Y axis
+                        let boundingClientFromTop = boundingClient.y;
+                        let boundingClientHeight = boundingClient.height;
+                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
+                    
+                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
+                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
+
+                    });
+                }, 500);
+            }, 500);
+        }
+    })
+}, portfolioProjectOptions);
+projectImageTwoObserver.observe(projectTwoCover);
+
+    // Portfolio Project 3
+const projectThreeCover = document.querySelector('.projectThreeCover');
+const projectImageThreeObserver = new IntersectionObserver(function(entries, projectImageObserver) {
+    entries.forEach(entry => {
+
+        const bones = document.querySelector('.vmmBones');
+        const layerOne = document.querySelector('.vmmProjectOne');
+        const layerTwo = document.querySelector('.vmmProjectTwo');
+
+        if (entry.isIntersecting) {
+            bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+            setTimeout(() => {
+                layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+                layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+                bones.style.display = 'none';
+
+                setTimeout(() => {
+
+                    layerOne.style.transition = '0.5s linear';
+                    layerTwo.style.transition = '0.5s linear';
+
+                    document.addEventListener('mousemove', (event) => {
+    
+                        let boundingClient = projectThreeCover.getBoundingClientRect();
+                        let clientX = event.clientX;
+                        let clientY = event.clientY;
+                    
+                        // X axis
+                        let boundingClientFromRight = boundingClient.x;
+                        let boundingClientWidth = boundingClient.width;
+                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
+                    
+                        // Y axis
+                        let boundingClientFromTop = boundingClient.y;
+                        let boundingClientHeight = boundingClient.height;
+                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
+                    
+                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
+                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
+
+                    });
+                }, 500);
+            }, 500);
+        }
+    })
+}, portfolioProjectOptions);
+projectImageThreeObserver.observe(projectThreeCover);
+
+    // Portfolio Project 3
+const projectFourCover = document.querySelector('.projectFourCover');
+const projectImageFourObserver = new IntersectionObserver(function(entries, projectImageObserver) {
+    entries.forEach(entry => {
+
+        const bones = document.querySelector('.algoBones');
+        const layerOne = document.querySelector('.algoProjectOne');
+        const layerTwo = document.querySelector('.algoProjectTwo');
+
+        if (entry.isIntersecting) {
+            bones.style.transform = 'perspective(500px) translateZ(20px) rotateY(90deg)';
+            setTimeout(() => {
+                layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
+                layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
+                bones.style.display = 'none';
+
+                setTimeout(() => {
+
+                    layerOne.style.transition = '0.5s linear';
+                    layerTwo.style.transition = '0.5s linear';
+
+                    document.addEventListener('mousemove', (event) => {
+    
+                        let boundingClient = projectFourCover.getBoundingClientRect();
+                        let clientX = event.clientX;
+                        let clientY = event.clientY;
+                    
+                        // X axis
+                        let boundingClientFromRight = boundingClient.x;
+                        let boundingClientWidth = boundingClient.width;
+                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
+                    
+                        // Y axis
+                        let boundingClientFromTop = boundingClient.y;
+                        let boundingClientHeight = boundingClient.height;
+                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
+                    
+                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
+                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
+
+                    });
+                }, 500);
+            }, 500);
+        }
+    })
+}, portfolioProjectOptions);
+projectImageFourObserver.observe(projectFourCover);
+
