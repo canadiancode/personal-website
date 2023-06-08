@@ -27,7 +27,6 @@ document.addEventListener('scroll', (e) => {
     const imageOne = document.querySelector('.heroImg1');
     const imageTwo = document.querySelector('.heroImg2');
     const imageFour = document.querySelector('.heroImg4');
-    const spacer = document.querySelector('.imageSpacer');
 
     // mountains and moon
     const mtnLayerThreeL = document.querySelector('.mtnLayer3L');
@@ -246,33 +245,6 @@ const projectImageOneObserver = new IntersectionObserver(function(entries, proje
                 layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
                 layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
                 bones.style.display = 'none';
-
-                setTimeout(() => {
-
-                    layerOne.style.transition = '0.5s linear';
-                    layerTwo.style.transition = '0.5s linear';
-
-                    document.addEventListener('mousemove', (event) => {
-    
-                        let boundingClient = projectOneCover.getBoundingClientRect();
-                        let clientX = event.clientX;
-                        let clientY = event.clientY;
-                    
-                        // X axis
-                        let boundingClientFromRight = boundingClient.x;
-                        let boundingClientWidth = boundingClient.width;
-                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
-                    
-                        // Y axis
-                        let boundingClientFromTop = boundingClient.y;
-                        let boundingClientHeight = boundingClient.height;
-                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
-                    
-                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
-                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
-
-                    });
-                }, 500);
             }, 500);
         }
     })
@@ -294,32 +266,9 @@ const projectImageTwoObserver = new IntersectionObserver(function(entries, proje
                 layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
                 layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
                 bones.style.display = 'none';
-
                 setTimeout(() => {
-
                     layerOne.style.transition = '0.5s linear';
                     layerTwo.style.transition = '0.5s linear';
-
-                    document.addEventListener('mousemove', (event) => {
-    
-                        let boundingClient = projectTwoCover.getBoundingClientRect();
-                        let clientX = event.clientX;
-                        let clientY = event.clientY;
-                    
-                        // X axis
-                        let boundingClientFromRight = boundingClient.x;
-                        let boundingClientWidth = boundingClient.width;
-                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
-                    
-                        // Y axis
-                        let boundingClientFromTop = boundingClient.y;
-                        let boundingClientHeight = boundingClient.height;
-                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
-                    
-                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
-                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
-
-                    });
                 }, 500);
             }, 500);
         }
@@ -342,32 +291,9 @@ const projectImageThreeObserver = new IntersectionObserver(function(entries, pro
                 layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
                 layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
                 bones.style.display = 'none';
-
                 setTimeout(() => {
-
                     layerOne.style.transition = '0.5s linear';
                     layerTwo.style.transition = '0.5s linear';
-
-                    document.addEventListener('mousemove', (event) => {
-    
-                        let boundingClient = projectThreeCover.getBoundingClientRect();
-                        let clientX = event.clientX;
-                        let clientY = event.clientY;
-                    
-                        // X axis
-                        let boundingClientFromRight = boundingClient.x;
-                        let boundingClientWidth = boundingClient.width;
-                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
-                    
-                        // Y axis
-                        let boundingClientFromTop = boundingClient.y;
-                        let boundingClientHeight = boundingClient.height;
-                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
-                    
-                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
-                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
-
-                    });
                 }, 500);
             }, 500);
         }
@@ -390,32 +316,9 @@ const projectImageFourObserver = new IntersectionObserver(function(entries, proj
                 layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
                 layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
                 bones.style.display = 'none';
-
                 setTimeout(() => {
-
                     layerOne.style.transition = '0.5s linear';
                     layerTwo.style.transition = '0.5s linear';
-
-                    document.addEventListener('mousemove', (event) => {
-    
-                        let boundingClient = projectFourCover.getBoundingClientRect();
-                        let clientX = event.clientX;
-                        let clientY = event.clientY;
-                    
-                        // X axis
-                        let boundingClientFromRight = boundingClient.x;
-                        let boundingClientWidth = boundingClient.width;
-                        let boundClientCenterX = (clientX - (boundingClientFromRight + (boundingClientWidth / 2))) * 0.05;
-                    
-                        // Y axis
-                        let boundingClientFromTop = boundingClient.y;
-                        let boundingClientHeight = boundingClient.height;
-                        let boundClientCenterY = (clientY - (boundingClientFromTop + (boundingClientHeight / 2))) * 0.05;
-                    
-                        layerOne.style.transform = `rotateX(${boundClientCenterY * 0.5}deg) translateX(${boundClientCenterX}px) rotateY(${boundClientCenterX * 0.5}deg) translateY(${boundClientCenterY}px)`;
-                        layerTwo.style.transform = `rotateX(${boundClientCenterY * 0.1}deg) translateX(${-boundClientCenterX * 0.5}px) rotateY(${boundClientCenterX * 0.1}deg) translateY(${- boundClientCenterY * 0.5}px)`;
-
-                    });
                 }, 500);
             }, 500);
         }

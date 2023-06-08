@@ -145,7 +145,6 @@ document.addEventListener('scroll', function (e) {
   var imageOne = document.querySelector('.heroImg1');
   var imageTwo = document.querySelector('.heroImg2');
   var imageFour = document.querySelector('.heroImg4');
-  var spacer = document.querySelector('.imageSpacer');
 
   // mountains and moon
   var mtnLayerThreeL = document.querySelector('.mtnLayer3L');
@@ -350,27 +349,6 @@ var projectImageOneObserver = new IntersectionObserver(function (entries, projec
         layerOne.style.transform = 'perspective(500px) translateZ(20px) rotateY(0deg)';
         layerTwo.style.transform = 'perspective(1000px) translateZ(20px) rotateY(0deg)';
         bones.style.display = 'none';
-        setTimeout(function () {
-          layerOne.style.transition = '0.5s linear';
-          layerTwo.style.transition = '0.5s linear';
-          document.addEventListener('mousemove', function (event) {
-            var boundingClient = projectOneCover.getBoundingClientRect();
-            var clientX = event.clientX;
-            var clientY = event.clientY;
-
-            // X axis
-            var boundingClientFromRight = boundingClient.x;
-            var boundingClientWidth = boundingClient.width;
-            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
-
-            // Y axis
-            var boundingClientFromTop = boundingClient.y;
-            var boundingClientHeight = boundingClient.height;
-            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
-            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
-            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
-          });
-        }, 500);
       }, 500);
     }
   });
@@ -393,23 +371,6 @@ var projectImageTwoObserver = new IntersectionObserver(function (entries, projec
         setTimeout(function () {
           layerOne.style.transition = '0.5s linear';
           layerTwo.style.transition = '0.5s linear';
-          document.addEventListener('mousemove', function (event) {
-            var boundingClient = projectTwoCover.getBoundingClientRect();
-            var clientX = event.clientX;
-            var clientY = event.clientY;
-
-            // X axis
-            var boundingClientFromRight = boundingClient.x;
-            var boundingClientWidth = boundingClient.width;
-            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
-
-            // Y axis
-            var boundingClientFromTop = boundingClient.y;
-            var boundingClientHeight = boundingClient.height;
-            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
-            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
-            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
-          });
         }, 500);
       }, 500);
     }
@@ -433,23 +394,6 @@ var projectImageThreeObserver = new IntersectionObserver(function (entries, proj
         setTimeout(function () {
           layerOne.style.transition = '0.5s linear';
           layerTwo.style.transition = '0.5s linear';
-          document.addEventListener('mousemove', function (event) {
-            var boundingClient = projectThreeCover.getBoundingClientRect();
-            var clientX = event.clientX;
-            var clientY = event.clientY;
-
-            // X axis
-            var boundingClientFromRight = boundingClient.x;
-            var boundingClientWidth = boundingClient.width;
-            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
-
-            // Y axis
-            var boundingClientFromTop = boundingClient.y;
-            var boundingClientHeight = boundingClient.height;
-            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
-            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
-            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
-          });
         }, 500);
       }, 500);
     }
@@ -473,23 +417,6 @@ var projectImageFourObserver = new IntersectionObserver(function (entries, proje
         setTimeout(function () {
           layerOne.style.transition = '0.5s linear';
           layerTwo.style.transition = '0.5s linear';
-          document.addEventListener('mousemove', function (event) {
-            var boundingClient = projectFourCover.getBoundingClientRect();
-            var clientX = event.clientX;
-            var clientY = event.clientY;
-
-            // X axis
-            var boundingClientFromRight = boundingClient.x;
-            var boundingClientWidth = boundingClient.width;
-            var boundClientCenterX = (clientX - (boundingClientFromRight + boundingClientWidth / 2)) * 0.05;
-
-            // Y axis
-            var boundingClientFromTop = boundingClient.y;
-            var boundingClientHeight = boundingClient.height;
-            var boundClientCenterY = (clientY - (boundingClientFromTop + boundingClientHeight / 2)) * 0.05;
-            layerOne.style.transform = "rotateX(".concat(boundClientCenterY * 0.5, "deg) translateX(").concat(boundClientCenterX, "px) rotateY(").concat(boundClientCenterX * 0.5, "deg) translateY(").concat(boundClientCenterY, "px)");
-            layerTwo.style.transform = "rotateX(".concat(boundClientCenterY * 0.1, "deg) translateX(").concat(-boundClientCenterX * 0.5, "px) rotateY(").concat(boundClientCenterX * 0.1, "deg) translateY(").concat(-boundClientCenterY * 0.5, "px)");
-          });
         }, 500);
       }, 500);
     }
@@ -521,7 +448,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51864" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63608" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
