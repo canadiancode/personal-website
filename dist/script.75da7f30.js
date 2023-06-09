@@ -268,7 +268,7 @@ document.addEventListener('scroll', function (e) {
   var topOfSectionTwo = document.querySelector('.sectionTwoText');
   var rocksGetBoundingClientRect = topOfSectionTwo.getBoundingClientRect();
   var aboutUsTextParallaxValue = rocksGetBoundingClientRect.y / 8 - 100;
-  topOfSectionTwo.style.transform = "translateY(".concat(aboutUsTextParallaxValue, "px)");
+  topOfSectionTwo.style.transform = "translateY(".concat(30 + aboutUsTextParallaxValue, "px)");
 
   // mole and bedrock parallax
   var bedrock = document.querySelector('.bedrock');
@@ -423,6 +423,60 @@ var projectImageFourObserver = new IntersectionObserver(function (entries, proje
   });
 }, portfolioProjectOptions);
 projectImageFourObserver.observe(projectFourCover);
+
+// Animation to display portfolio header text
+var portfolioTextOption = {
+  rootMargin: "0px",
+  threshold: 0.6
+};
+var portfolioHeader = document.querySelectorAll('.sectionFourText > h4');
+var portfolioHeaderTextObserver = new IntersectionObserver(function (entries, portfolioTextObserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.style.textShadow = 'var(--section-title-text-shadow)';
+      entry.target.style.transform = 'translateY(0px)';
+      entry.target.style.color = 'var(--black)';
+      entry.target.style.opacity = '1';
+    }
+  });
+}, portfolioTextOption);
+portfolioHeader.forEach(function (header) {
+  portfolioHeaderTextObserver.observe(header);
+});
+
+// Animation to display portfolio paragraph text
+var portfolioParagraph = document.querySelectorAll('.sectionFourText > p');
+var portfolioParTextObserver = new IntersectionObserver(function (entries, portfolioTextObserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      setTimeout(function () {
+        entry.target.style.textShadow = 'var(--par-text-shadow)';
+        entry.target.style.transform = 'translateY(0px)';
+        entry.target.style.color = 'var(--section-par-text-color)';
+        entry.target.style.opacity = '1';
+      }, 200);
+    }
+  });
+}, portfolioTextOption);
+portfolioParagraph.forEach(function (paragraph) {
+  portfolioParTextObserver.observe(paragraph);
+});
+
+// Animation to display portfolio button
+var portfolioButton = document.querySelectorAll('.sectionFourText > a > button');
+var portfolioButtonObserver = new IntersectionObserver(function (entries, portfolioTextObserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      setTimeout(function () {
+        entry.target.style.transform = 'translateY(0px)';
+        entry.target.style.opacity = '1';
+      }, 400);
+    }
+  });
+}, portfolioTextOption);
+portfolioButton.forEach(function (button) {
+  portfolioButtonObserver.observe(button);
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -448,7 +502,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63608" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58635" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

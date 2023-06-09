@@ -158,7 +158,7 @@ document.addEventListener('scroll', (e) => {
     const topOfSectionTwo = document.querySelector('.sectionTwoText');
     let rocksGetBoundingClientRect = topOfSectionTwo.getBoundingClientRect();
     let aboutUsTextParallaxValue = (rocksGetBoundingClientRect.y / 8) - 100;
-    topOfSectionTwo.style.transform = `translateY(${aboutUsTextParallaxValue}px)`;
+    topOfSectionTwo.style.transform = `translateY(${30 + aboutUsTextParallaxValue}px)`;
 
     // mole and bedrock parallax
     const bedrock = document.querySelector('.bedrock');
@@ -326,3 +326,56 @@ const projectImageFourObserver = new IntersectionObserver(function(entries, proj
 }, portfolioProjectOptions);
 projectImageFourObserver.observe(projectFourCover);
 
+// Animation to display portfolio header text
+const portfolioTextOption = {
+    rootMargin: "0px",
+    threshold: 0.6
+}
+const portfolioHeader = document.querySelectorAll('.sectionFourText > h4');
+const portfolioHeaderTextObserver = new IntersectionObserver(function(entries, portfolioTextObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.textShadow = 'var(--section-title-text-shadow)';
+            entry.target.style.transform = 'translateY(0px)';
+            entry.target.style.color = 'var(--black)';
+            entry.target.style.opacity = '1';
+        }
+    })
+}, portfolioTextOption);
+portfolioHeader.forEach(header => {
+    portfolioHeaderTextObserver.observe(header);
+});
+
+// Animation to display portfolio paragraph text
+const portfolioParagraph = document.querySelectorAll('.sectionFourText > p');
+const portfolioParTextObserver = new IntersectionObserver(function(entries, portfolioTextObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.textShadow = 'var(--par-text-shadow)';
+                entry.target.style.transform = 'translateY(0px)';
+                entry.target.style.color = 'var(--section-par-text-color)';
+                entry.target.style.opacity = '1';
+            }, 200);            
+        }
+    })
+}, portfolioTextOption);
+portfolioParagraph.forEach(paragraph => {
+    portfolioParTextObserver.observe(paragraph);
+});
+
+// Animation to display portfolio button
+const portfolioButton = document.querySelectorAll('.sectionFourText > a > button');
+const portfolioButtonObserver = new IntersectionObserver(function(entries, portfolioTextObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.transform = 'translateY(0px)';
+                entry.target.style.opacity = '1';
+            }, 400);            
+        }
+    })
+}, portfolioTextOption);
+portfolioButton.forEach(button => {
+    portfolioButtonObserver.observe(button);
+});

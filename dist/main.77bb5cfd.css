@@ -88,10 +88,11 @@ select {
   --main-header-size-mobile: calc(12px + 3vmax);
   --main-subheader-size: calc(12px + 2vmax);
   --main-subheader-handwriting-size: calc(12px + 3vmax);
-  --paragraph-size: 1.2em;
+  --paragraph-size: calc(12px + 1vmin);
   --font-main-heading: "Rowdies", cursive;
   --font-sub-heading: "Hammersmith One", sans-serif;
   --font-hand-writing: "Dancing Script", cursive;
+  --pragraph-font: "Rubik", sans-serif;
   --default-transition-duration: 0.6s ease-out;
   --project-transition-duration: 1s ease-in-out;
 }
@@ -249,6 +250,7 @@ select {
   opacity: 0;
   transform: translateY(50px);
   text-shadow: var(--par-text-shadow);
+  font-family: var(--pragraph-font);
 }
 .sectionTwo .sectionTwoImage {
   padding: 0em 2em 0em 0em;
@@ -583,6 +585,53 @@ select {
 .sectionFour .project .sectionFourText {
   width: 100%;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+.sectionFour .project .sectionFourText h4 {
+  padding: 1rem 2rem 1rem 2rem;
+  font-family: var(--font-sub-heading);
+  font-size: var(--main-header-size);
+  transition: var(--default-transition-duration);
+  opacity: 0;
+  text-shadow: var(--darker-blue-bg);
+  transform: translateY(50px);
+  color: var(--darker-blue-bg);
+}
+.sectionFour .project .sectionFourText p {
+  font-family: var(--pragraph-font);
+  font-size: var(--paragraph-size);
+  color: var(--darker-blue-bg);
+  transition: var(--default-transition-duration);
+  opacity: 0;
+  transform: translateY(50px);
+  text-shadow: var(--darker-blue-bg);
+  padding: 0rem 2rem 0rem 2rem;
+}
+.sectionFour .project .sectionFourText a {
+  margin: 2rem 2rem 2rem 2rem;
+  max-width: 170px;
+  cursor: pointer;
+}
+.sectionFour .project .sectionFourText a button {
+  width: 100%;
+  padding: 3px 0px;
+  height: 100%;
+  cursor: pointer;
+  font-family: var(--font-sub-heading);
+  border: solid 2px var(--section-par-text-color);
+  color: var(--section-par-text-color);
+  background-color: var(--black);
+  border-radius: 5px;
+  transition: var(--default-transition-duration);
+  opacity: 0;
+  transform: translateY(50px);
+}
+.sectionFour .project .sectionFourText a button:hover {
+  border: solid 2px var(--section-par-text-color);
+  color: var(--black);
+  background-color: var(--section-par-text-color);
 }
 .sectionFour .random {
   content: "";
