@@ -379,3 +379,19 @@ const portfolioButtonObserver = new IntersectionObserver(function(entries, portf
 portfolioButton.forEach(button => {
     portfolioButtonObserver.observe(button);
 });
+
+
+// Service Steps
+const steps = document.querySelectorAll('.step');
+steps.forEach(container => {
+    container.addEventListener('click', (event) => {
+        if (!event.target.classList.contains('active')) {
+            // removed class for all steps
+            steps.forEach(step => {
+                step.classList.remove('active');
+            });
+            // add active class for selected step
+            container.classList.add('active');
+        }
+    });
+});

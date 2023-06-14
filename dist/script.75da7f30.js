@@ -477,6 +477,21 @@ var portfolioButtonObserver = new IntersectionObserver(function (entries, portfo
 portfolioButton.forEach(function (button) {
   portfolioButtonObserver.observe(button);
 });
+
+// Service Steps
+var steps = document.querySelectorAll('.step');
+steps.forEach(function (container) {
+  container.addEventListener('click', function (event) {
+    if (!event.target.classList.contains('active')) {
+      // removed class for all steps
+      steps.forEach(function (step) {
+        step.classList.remove('active');
+      });
+      // add active class for selected step
+      container.classList.add('active');
+    }
+  });
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -502,7 +517,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58635" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51653" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
