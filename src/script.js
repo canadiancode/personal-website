@@ -168,32 +168,6 @@ document.addEventListener('scroll', (e) => {
     let moleParallaxValue = (50 + (heroTextScroll / 20)) * -1;
     mole.style.transform = `translateY(${moleParallaxValue}px)`;
 
-    // about us intersection observer
-    const headshotOutline = document.querySelector('.sectionTwoTextElements');
-    const intersectionObserverOptions = {
-        rootMargin: "0px",
-        threshold: 0.6
-    }
-    const textIntersectionObserver = new IntersectionObserver(function(entries, textIntersectionObserver) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const aboutUsHeading = document.querySelector('.aboutUsHeading');
-                aboutUsHeading.style.color = 'var(--black)';
-                aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
-                aboutUsHeading.style.transform = 'translateY(0px)';
-                aboutUsHeading.style.opacity = '1';
-
-                const aboutUsPar = document.querySelector('.aboutUsPar');
-                setTimeout(() => {
-                    aboutUsPar.style.color = 'var(--section-par-text-color)';
-                    aboutUsPar.style.transform = 'translateY(0px)';
-                    aboutUsPar.style.opacity = '1';
-                }, 300);
-            }
-        })
-    }, intersectionObserverOptions);
-    textIntersectionObserver.observe(headshotOutline);
-
 });
 
 // mouse move aniation
@@ -241,6 +215,33 @@ document.addEventListener('mousemove', (e) => {
 
 
 });
+
+// About Me section text display animation
+const headshotOutline = document.querySelector('.sectionTwoTextElements');
+const intersectionObserverOptions = {
+    rootMargin: "0px",
+    threshold: 0.6
+}
+const textIntersectionObserver = new IntersectionObserver(function(entries, textIntersectionObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const aboutUsHeading = document.querySelector('.aboutUsHeading');
+            aboutUsHeading.style.color = 'var(--black)';
+            aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
+            aboutUsHeading.style.transform = 'translateY(0px)';
+            aboutUsHeading.style.opacity = '1';
+
+            const aboutUsPar = document.querySelector('.aboutUsPar');
+            setTimeout(() => {
+                aboutUsPar.style.color = 'var(--section-par-text-color)';
+                aboutUsPar.style.transform = 'translateY(0px)';
+                aboutUsPar.style.opacity = '1';
+            }, 300);
+        }
+    })
+}, intersectionObserverOptions);
+textIntersectionObserver.observe(headshotOutline);
+
 
 // Portfolio Image Display Animation 
 const portfolioProjectOptions = {
@@ -413,3 +414,26 @@ steps.forEach(container => {
         }
     });
 });
+
+// Contact me text animation display
+// About Me section text display animation
+const contactUsHeading = document.querySelector('.contactUsHeading');
+const contactUsTextObserver = new IntersectionObserver(function(entries, textIntersectionObserver) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const aboutUsHeading = document.querySelector('.contactUsHeading');
+            aboutUsHeading.style.color = 'var(--black)';
+            aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
+            aboutUsHeading.style.transform = 'translateY(0px)';
+            aboutUsHeading.style.opacity = '1';
+
+            const contactUsPar = document.querySelector('.contactUsPar');
+            setTimeout(() => {
+                contactUsPar.style.color = 'var(--section-par-text-color)';
+                contactUsPar.style.transform = 'translateY(0px)';
+                contactUsPar.style.opacity = '1';
+            }, 300);
+        }
+    })
+}, intersectionObserverOptions);
+contactUsTextObserver.observe(contactUsHeading);

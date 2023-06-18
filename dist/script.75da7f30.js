@@ -277,31 +277,6 @@ document.addEventListener('scroll', function (e) {
   var mole = document.querySelector('.mole');
   var moleParallaxValue = (50 + heroTextScroll / 20) * -1;
   mole.style.transform = "translateY(".concat(moleParallaxValue, "px)");
-
-  // about us intersection observer
-  var headshotOutline = document.querySelector('.sectionTwoTextElements');
-  var intersectionObserverOptions = {
-    rootMargin: "0px",
-    threshold: 0.6
-  };
-  var textIntersectionObserver = new IntersectionObserver(function (entries, textIntersectionObserver) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        var aboutUsHeading = document.querySelector('.aboutUsHeading');
-        aboutUsHeading.style.color = 'var(--black)';
-        aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
-        aboutUsHeading.style.transform = 'translateY(0px)';
-        aboutUsHeading.style.opacity = '1';
-        var aboutUsPar = document.querySelector('.aboutUsPar');
-        setTimeout(function () {
-          aboutUsPar.style.color = 'var(--section-par-text-color)';
-          aboutUsPar.style.transform = 'translateY(0px)';
-          aboutUsPar.style.opacity = '1';
-        }, 300);
-      }
-    });
-  }, intersectionObserverOptions);
-  textIntersectionObserver.observe(headshotOutline);
 });
 
 // mouse move aniation
@@ -343,6 +318,31 @@ document.addEventListener('mousemove', function (e) {
   var contactUsLayerFourY = centerHeightPx / 70;
   contactUsImgLayerFour.style.transform = "translate(".concat(contactUsLayerFourX, "px, ").concat(contactUsLayerFourY, "px)");
 });
+
+// About Me section text display animation
+var headshotOutline = document.querySelector('.sectionTwoTextElements');
+var intersectionObserverOptions = {
+  rootMargin: "0px",
+  threshold: 0.6
+};
+var textIntersectionObserver = new IntersectionObserver(function (entries, textIntersectionObserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      var aboutUsHeading = document.querySelector('.aboutUsHeading');
+      aboutUsHeading.style.color = 'var(--black)';
+      aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
+      aboutUsHeading.style.transform = 'translateY(0px)';
+      aboutUsHeading.style.opacity = '1';
+      var aboutUsPar = document.querySelector('.aboutUsPar');
+      setTimeout(function () {
+        aboutUsPar.style.color = 'var(--section-par-text-color)';
+        aboutUsPar.style.transform = 'translateY(0px)';
+        aboutUsPar.style.opacity = '1';
+      }, 300);
+    }
+  });
+}, intersectionObserverOptions);
+textIntersectionObserver.observe(headshotOutline);
 
 // Portfolio Image Display Animation 
 var portfolioProjectOptions = {
@@ -506,6 +506,28 @@ steps.forEach(function (container) {
     }
   });
 });
+
+// Contact me text animation display
+// About Me section text display animation
+var contactUsHeading = document.querySelector('.contactUsHeading');
+var contactUsTextObserver = new IntersectionObserver(function (entries, textIntersectionObserver) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      var aboutUsHeading = document.querySelector('.contactUsHeading');
+      aboutUsHeading.style.color = 'var(--black)';
+      aboutUsHeading.style.textShadow = 'var(--section-title-text-shadow)';
+      aboutUsHeading.style.transform = 'translateY(0px)';
+      aboutUsHeading.style.opacity = '1';
+      var contactUsPar = document.querySelector('.contactUsPar');
+      setTimeout(function () {
+        contactUsPar.style.color = 'var(--section-par-text-color)';
+        contactUsPar.style.transform = 'translateY(0px)';
+        contactUsPar.style.opacity = '1';
+      }, 300);
+    }
+  });
+}, intersectionObserverOptions);
+contactUsTextObserver.observe(contactUsHeading);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

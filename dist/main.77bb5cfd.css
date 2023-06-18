@@ -888,15 +888,19 @@ select {
   color: var(--black);
   background-color: var(--section-par-text-color);
 }
+.sectionSix .contactUs .conactUsText h4, .sectionSix .contactUs .conactUsText p {
+  transition: var(--default-transition-duration);
+  transform: translateY(50px);
+  color: var(--darker-blue-bg);
+  opacity: 0;
+}
 .sectionSix .contactUs .conactUsText h4 {
   text-shadow: var(--section-title-text-shadow);
-  color: var(--black);
   font-family: var(--font-sub-heading);
   font-size: var(--main-header-size);
   padding: 0rem 2rem 1rem 2rem;
 }
 .sectionSix .contactUs .conactUsText p {
-  color: var(--section-par-text-color);
   text-shadow: var(--par-text-shadow);
   font-family: var(--pragraph-font);
   font-size: var(--paragraph-size);
