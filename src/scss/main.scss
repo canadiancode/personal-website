@@ -21,6 +21,10 @@ dd {
   cursor: default;
 }
 
+h2, h4, h5 {
+  line-height: 1em;
+}
+
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
 ul[role='list'],
 ol[role='list'] {
@@ -165,6 +169,7 @@ select {
             margin-top: -1rem;
             clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
             transform: translateY(-50px);
+            line-height: normal;
             span {
               font-family: var(--font-hand-writing);
               font-size: var(--main-subheader-handwriting-size);
@@ -219,6 +224,7 @@ select {
   z-index: 2;
   position: relative;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -235,6 +241,7 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 1100px;
     .sectionTwoTextElements {
       max-width: 70%;
       margin-top: -4rem;
@@ -283,6 +290,7 @@ select {
     min-height: 70vh;
     height: 100%;
     overflow: hidden;
+    max-width: 1100px;
     @media screen and (max-width: 1000px) {
       & {
         padding: 2em;
@@ -311,6 +319,11 @@ select {
             padding: 0em;
           }
         }
+        @media screen and (min-width: 2000px) {
+          & {
+            min-width: 100%;
+          }
+        }
       }
       .headshotOutline {
         object-fit: fill;
@@ -324,8 +337,9 @@ select {
   .mole {
     position: absolute;
     width: 25vw;
+    left: 0;
     transform: translateY(-50px);
-    @media screen and (max-width: 900px) {
+    @media screen and (max-width: 950px) {
       display: none;
     }
   }
@@ -389,7 +403,7 @@ select {
 .sectionThree {
   user-select: none;
   content: '';
-  min-height: 60vh;
+  padding-bottom: 8rem;
   width: 100%;
   background-color: var(--darker-blue-bg);
   overflow: hidden;
@@ -535,6 +549,7 @@ select {
     width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     &:nth-child(even) {
       flex-direction: row-reverse;
     }
@@ -547,6 +562,9 @@ select {
     .sectionFourImg {
       width: 100%;
       padding: 1rem;
+      max-width: 900px;
+      display: flex;
+      align-self: center;
       div {
         width: 100%;
         height: 100%;
@@ -629,6 +647,7 @@ select {
       display: flex;
       flex-direction: column;
       align-self: center;
+      max-width: 900px;
       h4 {
         padding: 1rem 2rem 1rem 2rem;
         font-family: var(--font-sub-heading);
@@ -673,6 +692,14 @@ select {
           }
         }
       }
+      @media screen and (max-width: 400px) {
+        h4 {
+          padding: 1rem;
+        }
+        p {
+          padding: 0rem 1rem 0rem 1rem;
+        }
+      }
     }
   }
 }
@@ -683,6 +710,10 @@ select {
 
 .sectionFive {
   width: 100%;
+  background-color: var(--black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   .oilPatch {
     width: 100%;
   }
@@ -694,6 +725,7 @@ select {
     padding: 0rem 2rem 2rem 2rem;
     gap: 1rem;
     min-height: 80vh;
+    max-width: 1900px;
     .step {
       min-width: 120px;
       border-radius: 15px;
@@ -821,7 +853,9 @@ select {
   min-height: 100vh;
   background-color: var(--darker-blue-bg);
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
   @media screen and (max-width: 1000px) {
     & {
       flex-direction: column-reverse;
@@ -832,19 +866,18 @@ select {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    max-width: 800px;
     .formContainer {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      align-items: flex-start;
       justify-content: center;
-      height: 100%;
       @media screen and (max-width: 1000px) {
         align-items: center;
       }
       form {
         display: flex;
         flex-direction: column;
-        width: 100%;
         gap: 1.2rem;
         padding: 2rem;
         max-width: 550px;
@@ -852,6 +885,11 @@ select {
         border-radius: 10px;
         box-shadow:  10px 10px 20px #091118;
         border: 2px solid var(--section-par-text-color);
+        @media screen and (max-width: 400px) {
+          & {
+            padding: 1rem;
+          }
+        }
         label {
           color: var(--white);
           text-shadow: var(--par-text-shadow);
