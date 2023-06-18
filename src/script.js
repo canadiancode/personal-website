@@ -222,6 +222,24 @@ document.addEventListener('mousemove', (e) => {
     let centerX = (headshotClientX - (windowWidth / 2)) / 50;
     let centerY = (headshotClientY - (windowHeight / 2)) / 50;
     headshot.style.transform = `translate(${centerX}px, ${centerY}px)`;
+
+    // contact us section
+    const contactUsImgLayerTwo = document.querySelector('.contactUsImgLayerTwo');
+    let contactUsLayerTwoX = centerWidthPx / 550;
+    let contactUsLayerTwoY = centerHeightPx / 550;
+    contactUsImgLayerTwo.style.transform = `translate(${contactUsLayerTwoX}px, ${contactUsLayerTwoY}px)`;
+
+    const contactUsImgLayerThree = document.querySelector('.contactUsImgLayerThree');
+    let contactUsLayerThreeX = centerWidthPx / 200;
+    let contactUsLayerThreeY = centerHeightPx / 200;
+    contactUsImgLayerThree.style.transform = `translate(${contactUsLayerThreeX}px, ${contactUsLayerThreeY}px)`;
+
+    const contactUsImgLayerFour = document.querySelector('.contactUsImgLayerFour');
+    let contactUsLayerFourX = centerWidthPx / 70;
+    let contactUsLayerFourY = centerHeightPx / 70;
+    contactUsImgLayerFour.style.transform = `translate(${contactUsLayerFourX}px, ${contactUsLayerFourY}px)`;
+
+
 });
 
 // Portfolio Image Display Animation 

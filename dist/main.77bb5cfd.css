@@ -634,13 +634,13 @@ select {
   background-color: var(--section-par-text-color);
 }
 
-.sectionSix {
+.sectionFive {
   width: 100%;
 }
-.sectionSix .oilPatch {
+.sectionFive .oilPatch {
   width: 100%;
 }
-.sectionSix .serviceContainer {
+.sectionFive .serviceContainer {
   background-color: var(--black);
   display: flex;
   flex-direction: row;
@@ -649,7 +649,7 @@ select {
   gap: 1rem;
   min-height: 80vh;
 }
-.sectionSix .serviceContainer .step {
+.sectionFive .serviceContainer .step {
   min-width: 120px;
   border-radius: 15px;
   transition: 2s;
@@ -658,7 +658,7 @@ select {
   position: relative;
   transition: var(--default-transition-duration);
 }
-.sectionSix .serviceContainer .step img {
+.sectionFive .serviceContainer .step img {
   position: absolute;
   min-height: 100%;
   min-width: 100%;
@@ -666,7 +666,7 @@ select {
   filter: brightness(1);
   transition: var(--default-transition-duration);
 }
-.sectionSix .serviceContainer .step h4, .sectionSix .serviceContainer .step h5, .sectionSix .serviceContainer .step p {
+.sectionFive .serviceContainer .step h4, .sectionFive .serviceContainer .step h5, .sectionFive .serviceContainer .step p {
   color: var(--black);
   margin: 1rem;
   position: relative;
@@ -674,87 +674,206 @@ select {
   transition: var(--default-transition-duration);
   text-shadow: 2px 2px 1px var(--section-par-text-color), -2px -2px 1px var(--section-par-text-color);
 }
-.sectionSix .serviceContainer .step h4 {
+.sectionFive .serviceContainer .step h4 {
   font-family: var(--font-main-heading);
   width: fit-content;
   margin: 20px;
 }
-.sectionSix .serviceContainer .step h5 {
+.sectionFive .serviceContainer .step h5 {
   font-family: var(--font-sub-heading);
   font-size: var(--main-subheader-size);
   opacity: 0;
   padding-left: 15px;
   font-size: 0px;
 }
-.sectionSix .serviceContainer .step p {
-  color: var(--darker-blue-bg);
+.sectionFive .serviceContainer .step p {
+  color: var(--white);
   font-weight: bolder;
   font-family: var(--pragraph-font);
-  text-shadow: 3px 3px 6px var(--white), -3px -3px 6px var(--white);
+  text-shadow: 3px 3px 6px var(--darker-blue-bg), -3px -3px 6px var(--darker-blue-bg);
   padding: 1rem;
   font-size: 0px;
   opacity: 0;
 }
-.sectionSix .serviceContainer .active {
+.sectionFive .serviceContainer .active {
   width: 100%;
   max-height: none;
 }
-.sectionSix .serviceContainer .active img {
+.sectionFive .serviceContainer .active img {
   filter: brightness(0.5);
 }
-.sectionSix .serviceContainer .active h4 {
+.sectionFive .serviceContainer .active h4 {
   text-shadow: 2px 2px 1px var(--white), -2px -2px 1px var(--white);
 }
-.sectionSix .serviceContainer .active h5 {
+.sectionFive .serviceContainer .active h5 {
   opacity: 1;
   font-size: var(--main-subheader-size);
 }
-.sectionSix .serviceContainer .active p {
+.sectionFive .serviceContainer .active p {
   font-size: var(--paragraph-size);
   opacity: 1;
-  margin: 3rem 3em 0rem 3em;
+  margin: 1rem 3em 0rem 3em;
+  max-width: 400px;
 }
 @media screen and (max-width: 1000px) {
-  .sectionSix .serviceContainer {
+  .sectionFive .serviceContainer {
     flex-direction: column;
   }
-  .sectionSix .serviceContainer .step {
+  .sectionFive .serviceContainer .step {
     width: 100%;
     max-height: 75px;
     transition: var(--default-transition-duration);
   }
-  .sectionSix .serviceContainer .step h4, .sectionSix .serviceContainer .step h5, .sectionSix .serviceContainer .step p {
+  .sectionFive .serviceContainer .step h4, .sectionFive .serviceContainer .step h5, .sectionFive .serviceContainer .step p {
     padding: 0px 5px 0px 8px;
   }
-  .sectionSix .serviceContainer .step h4 {
+  .sectionFive .serviceContainer .step h4 {
     margin: 20px;
   }
-  .sectionSix .serviceContainer .step h5 {
+  .sectionFive .serviceContainer .step h5 {
     opacity: 0;
     font-size: 0px;
     margin: 0.3rem;
   }
-  .sectionSix .serviceContainer .step p {
+  .sectionFive .serviceContainer .step p {
     opacity: 0;
     font-size: var(--paragraph-size);
     margin: 0;
+    max-width: none;
   }
-  .sectionSix .serviceContainer .active {
+  .sectionFive .serviceContainer .active {
     min-height: 60vh;
     max-height: none;
   }
-  .sectionSix .serviceContainer .active h4 {
+  .sectionFive .serviceContainer .active h4 {
     text-shadow: 2px 2px 1px var(--white), -2px -2px 1px var(--white);
   }
-  .sectionSix .serviceContainer .active h5 {
+  .sectionFive .serviceContainer .active h5 {
     opacity: 1;
     font-size: var(--main-subheader-size);
   }
-  .sectionSix .serviceContainer .active p {
+  .sectionFive .serviceContainer .active p {
     opacity: 1;
     padding: 1rem;
     font-size: var(--paragraph-size);
   }
+}
+
+.sectionSix {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--darker-blue-bg);
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 1000px) {
+  .sectionSix {
+    flex-direction: column-reverse;
+  }
+}
+.sectionSix .contactUs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+.sectionSix .contactUs .formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .sectionSix .contactUs .formContainer {
+    align-items: center;
+  }
+}
+.sectionSix .contactUs .formContainer form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1.2rem;
+  padding: 2rem;
+  max-width: 550px;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 10px 10px 20px #091118;
+  border: 2px solid var(--section-par-text-color);
+}
+.sectionSix .contactUs .formContainer form label {
+  color: var(--white);
+  text-shadow: var(--par-text-shadow);
+  font-family: var(--pragraph-font);
+  font-size: var(--paragraph-size);
+}
+.sectionSix .contactUs .formContainer form input {
+  width: 100%;
+  background-color: var(--ligher-blue-bg);
+  border: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: var(--white);
+  box-shadow: inset 1px 1px 8px 0px var(--black);
+}
+.sectionSix .contactUs .formContainer form input:placeholder-shown {
+  font-family: var(--pragraph-font);
+}
+.sectionSix .contactUs .formContainer form textarea {
+  box-shadow: inset 1px 1px 8px 0px var(--black);
+  width: 100% !important;
+  max-width: 100%;
+  resize: vertical;
+  min-height: 200px;
+  max-height: 700px;
+  background-color: var(--ligher-blue-bg);
+  border: none;
+  padding: 7px 10px;
+  border-radius: 5px;
+  color: var(--white);
+}
+.sectionSix .contactUs .formContainer form textarea:placeholder-shown {
+  font-family: var(--pragraph-font);
+}
+.sectionSix .contactUs .formContainer form button {
+  cursor: pointer;
+  font-family: var(--font-sub-heading);
+  border: solid 2px var(--section-par-text-color);
+  color: var(--section-par-text-color);
+  background-color: var(--black);
+  border-radius: 5px;
+  padding: 3px 0px;
+  transition: var(--default-transition-duration);
+}
+.sectionSix .contactUs .formContainer form button:hover {
+  border: solid 2px var(--section-par-text-color);
+  color: var(--black);
+  background-color: var(--section-par-text-color);
+}
+.sectionSix .contactUs .conactUsText h4 {
+  text-shadow: var(--section-title-text-shadow);
+  color: var(--black);
+  font-family: var(--font-sub-heading);
+  font-size: var(--main-header-size);
+  padding: 0rem 2rem 1rem 2rem;
+}
+.sectionSix .contactUs .conactUsText p {
+  color: var(--section-par-text-color);
+  text-shadow: var(--par-text-shadow);
+  font-family: var(--pragraph-font);
+  font-size: var(--paragraph-size);
+  padding: 0rem 2rem 2rem 2rem;
+}
+.sectionSix .contactUs .contactUsImgContainer {
+  position: relative;
+  overflow: hidden;
+}
+.sectionSix .contactUs .contactUsImgContainer .contactUsImg {
+  position: absolute;
+  width: 100%;
+}
+.sectionSix .contactUs .contactUsImgContainer .contactUsImgLayerOne {
+  position: relative;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

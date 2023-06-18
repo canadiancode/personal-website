@@ -328,6 +328,20 @@ document.addEventListener('mousemove', function (e) {
   var centerX = (headshotClientX - windowWidth / 2) / 50;
   var centerY = (headshotClientY - windowHeight / 2) / 50;
   headshot.style.transform = "translate(".concat(centerX, "px, ").concat(centerY, "px)");
+
+  // contact us section
+  var contactUsImgLayerTwo = document.querySelector('.contactUsImgLayerTwo');
+  var contactUsLayerTwoX = centerWidthPx / 550;
+  var contactUsLayerTwoY = centerHeightPx / 550;
+  contactUsImgLayerTwo.style.transform = "translate(".concat(contactUsLayerTwoX, "px, ").concat(contactUsLayerTwoY, "px)");
+  var contactUsImgLayerThree = document.querySelector('.contactUsImgLayerThree');
+  var contactUsLayerThreeX = centerWidthPx / 200;
+  var contactUsLayerThreeY = centerHeightPx / 200;
+  contactUsImgLayerThree.style.transform = "translate(".concat(contactUsLayerThreeX, "px, ").concat(contactUsLayerThreeY, "px)");
+  var contactUsImgLayerFour = document.querySelector('.contactUsImgLayerFour');
+  var contactUsLayerFourX = centerWidthPx / 70;
+  var contactUsLayerFourY = centerHeightPx / 70;
+  contactUsImgLayerFour.style.transform = "translate(".concat(contactUsLayerFourX, "px, ").concat(contactUsLayerFourY, "px)");
 });
 
 // Portfolio Image Display Animation 
@@ -517,7 +531,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50637" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57424" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
