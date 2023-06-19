@@ -19,6 +19,44 @@ setTimeout(() => {
     }, 500);
 }, 200);
 
+// Change the time of day
+const timeSwitch = document.querySelector('.switchLabel');
+timeSwitch.addEventListener('click', () => {
+
+    const heroImageNight = document.querySelector('.heroImgNight');
+    const heroImageDay = document.querySelector('.heroImgDay');
+    const heroImgMoon = document.querySelector('.heroImgMoon');
+    const heroImgSun = document.querySelector('.heroImgSun');
+    const moonSun = document.querySelectorAll('.moonSun');
+    
+    moonSun.forEach(element => {
+        element.style.transition = '1s ease';
+    });
+
+    if (heroImageDay.style.opacity === '1') {
+        heroImageNight.style.opacity = '1';
+        heroImgMoon.style.opacity = '1';
+        heroImgMoon.style.transform = 'translateY(0px)';
+        heroImageDay.style.opacity = '0';
+        heroImgSun.style.opacity = '0';
+        heroImgSun.style.transform = 'translateY(500px)';
+    } else {
+        heroImageDay.style.opacity = '1';
+        heroImgSun.style.opacity = '1';
+        heroImgSun.style.transform = 'translateY(0px)';
+        heroImageNight.style.opacity = '0';
+        heroImgMoon.style.opacity = '0';
+        heroImgMoon.style.transform = 'translateY(500px)';
+    }
+
+    moonSun.forEach(element => {
+        setTimeout(() => {
+            element.style.transition = '0s ease';
+        }, 1000);
+    });
+
+});
+
 // Parallax on scroll animation
 document.addEventListener('scroll', (e) => {
     const windowWidth = window.innerWidth;
@@ -36,6 +74,7 @@ document.addEventListener('scroll', (e) => {
     const mtnLayerOneR = document.querySelector('.mtnLayer1R');
     const mtnLayerOneL = document.querySelector('.mtnLayer1L');
     const moon = document.querySelector('.moon');
+    const sun = document.querySelector('.sun');
 
     let boundingClientRect = imageFour.getBoundingClientRect();
 
@@ -75,8 +114,9 @@ document.addEventListener('scroll', (e) => {
         mtnLayerOneL.style.transform = `translateX(${mtnLayerOneAnimationLeft}px)`;
         mtnLayerOneR.style.transform = `translateX(${mtnLayerOneAnimationRight}px)`;
 
-        // moon
+        // moon and sun
         moon.style.transform = `translateY(${moonAnimation}px)`;
+        sun.style.transform = `translateY(${moonAnimation}px)`;
 
     } else {
         const imageOneOriginalHeight = 70;
@@ -102,16 +142,9 @@ document.addEventListener('scroll', (e) => {
         mtnLayerOneL.style.transform = `translateX(${mtnLayerOneAnimationLeft}px)`;
         mtnLayerOneR.style.transform = `translateX(${mtnLayerOneAnimationRight}px)`;
 
-        // moon
+        // moon and sun
         moon.style.transform = `translateY(${moonAnimation}px)`;
-    }
-
-    // gap filler for edge case scrolling from hero section
-    const sectionTwo = document.querySelector('.sectionTwo');
-    if (boundingClientRect.y < -200) {
-        sectionTwo.style.boxShadow = '15px 0px 0px 20px var(--darker-blue-bg)';
-    } else {
-        sectionTwo.style.boxShadow = '0px 0px 0px 0px var(--darker-blue-bg)';
+        sun.style.transform = `translateY(${moonAnimation}px)`;
     }
 
     // heading text scroll, color and opacity animation

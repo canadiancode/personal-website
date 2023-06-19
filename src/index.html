@@ -25,30 +25,53 @@
 <body>
 
     <section class="hero sectionOne">
-        <div class="header">
+        <header class="header">
 
-        </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="#aboutMe">About Me</a></li>
+                    <li><a href="#toolsTech">Tools & Tech</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Day Night Switch -->
+            <div class="dayNightSwitchContainer">
+                <div class="switch">
+                    <input type="checkbox" class="switch__input" id="Switch">
+                    <label class="switchLabel" for="Switch">
+                        <span class="switch__indicator"></span>
+                        <span class="switch__decoration"></span>
+                    </label>
+                </div>
+            </div>
+
+        </header>
         <div class="imageTextContainer">
             <div class="heroText">
                 <h1 class="heroTextEl heroTextHeadingOne">Kev the Dev</h1>
                 <h2 class="heroTextEl heroTextHeadingTwo">Delving deep into<br><span>Web Creativity</span></h2>
             </div>
             <div class="heroImages">
-                <img src="/assets/layerFour.png" alt="a sunset background against a night sky" class="heroImg heroImg4">
-                <img src="/assets/moon.png" alt="animated white moon with a orange hue background" class="heroImg moon">
+                <img src="/assets/layerFour.png" alt="a sunset background against a night sky" class="heroImg weather heroImg4 heroImgNight">
+                <img src="/assets/layerFourAlt.png" alt="a sunset background against a night sky" class="heroImg weather heroImgDay">
+                <img src="/assets/moon.png" alt="animated white moon with a orange hue background" class="heroImg moon moonSun heroImgMoon">
+                <img src="/assets/moonAlt.png" alt="animated white moon with a orange hue background" class="heroImg sun moonSun heroImgSun">
                 <img src="/assets/mountainLayer3_L.png" alt="a mountain on the left hand side" class="heroImg mtnLayer3L">
                 <img src="/assets/mountainLayer3_R.png" alt="a mountain on the right hand side" class="heroImg mtnLayer3R">
                 <img src="/assets/mountainLayer2_L.png" alt="a mountain on the left hand side" class="heroImg mtnLayer2L">
                 <img src="/assets/mountainLayer2_R.png" alt="a mountain on the right hand side" class="heroImg mtnLayer2R">
                 <img src="/assets/mountainLayer1_L.png" alt="a mountain on the left hand side" class="heroImg mtnLayer1L">
                 <img src="/assets/mountainLayer1_R.png" alt="a mountain on the right hand side" class="heroImg mtnLayer1R">
-                <img src="/assets/layerTwo.png" alt="A hill with trees covering the hill, and a road going toward a sunset" class="heroImg heroImg2 ">
-                <img src="/assets/layerOne.png" alt="Rocks that are near the bottom of the site" class="heroImg heroImg1">
+                <img src="/assets/layerTwo.png" alt="A hill with trees covering the hill, and a road going toward a sunset" class="heroImg heroImg2">
+                <img src="/assets/layerOneGrain.png" alt="Rocks that are near the bottom of the site" class="heroImg heroImg1">
             </div>
         </div>
     </section>
 
-    <section class="sectionTwo">
+    <section id="aboutMe" class="sectionTwo">
         <img class="mole" src="/assets/personWorking.png" alt="a cartoon mole with a hard hat drilling toward the center of the website">
         <div class="sectionTwoText sectionTwoDiv">
             <div class="sectionTwoTextElements">
@@ -60,18 +83,20 @@
         <img class="bedrockMobile" src="/assets/bedrockMobile.png" alt="cartoon rocks stacked on top of each other">
         <div class="sectionTwoImage sectionTwoDiv">
             <div>
-                <img class="headshot" src="/assets/headshot.png" alt="A headshot black and white image of Kevin with his arms folded">
-                <img class="headshotOutline" src="/assets/headshotOutline.png" alt="an cartoon rock outlining the headshot">    
+                <div class="headshotContainer">
+                    <img class="headshot" src="/assets/headshot.png" alt="A headshot black and white image of Kevin with his arms folded">
+                </div>
+                <img class="headshotOutline" src="/assets/headshotOutlineGrain.png" alt="an cartoon rock outlining the headshot">    
             </div>        
         </div>
     </section>
 
-    <section class="sectionThree">
+    <section id="toolsTech" class="sectionThree">
         <div class="railroadContainer">
 
             <!-- Track -->
-            <img class="railroadTrack railroadTrackDesktop" src="/assets/Railroad.png" alt="an animated railroad tilted slightly to the right">
-            <img class="railroadTrack railroadTrackMobile" src="/assets/RailroadMobile.png" alt="an animated railroad tilted slightly to the right">
+            <img class="railroadTrack railroadTrackDesktop" src="/assets/RailroadGrain.png" alt="an animated railroad tilted slightly to the right">
+            <img class="railroadTrack railroadTrackMobile" src="/assets/RailroadMobileGrain.png" alt="an animated railroad tilted slightly to the right">
 
             <!-- HTML cart -->
             <img class="htmlCart" src="/assets/htmlCart.png" alt="an animated cart moving from left to right with an HTML logo inside the cart">
@@ -106,7 +131,7 @@
         </div>
     </section>
 
-    <section class="sectionFour">
+    <section id="portfolio" class="sectionFour">
 
         <div class="projectOne project">
             <div class="sectionFourImg">
@@ -204,7 +229,7 @@
     <section class="sectionFive">
         <img src="/assets/oilPatchTop.png" alt="" class="oilPatch">
 
-        <div class="serviceContainer">
+        <div id="process" class="serviceContainer">
             <div class="step stepOne active">
                 <img src="/assets/stepDiscovery.png" alt="">
                 <h4 class="stepOneText">Step 1</h4>
@@ -234,7 +259,7 @@
         <img src="/assets/oilPatchBottom.png" alt="" class="oilPatch">
     </section>
 
-    <section class="sectionSix">
+    <section id="contact" class="sectionSix">
         <div class="contactUs">
             <div class="formContainer">
                 <form>
@@ -254,7 +279,7 @@
                         <label>Your Message:</label>
                         <textarea placeholder="Your message here"></textarea>
                     </div>
-                    <button class="submitFormButton">Submit</button>>
+                    <button class="submitFormButton">Submit</button>
                 </form>
             </div>
         </div>
