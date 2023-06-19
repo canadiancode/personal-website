@@ -137,6 +137,39 @@ setTimeout(function () {
   }, 500);
 }, 200);
 
+// Change the time of day
+var timeSwitch = document.querySelector('.switchLabel');
+timeSwitch.addEventListener('click', function () {
+  var heroImageNight = document.querySelector('.heroImgNight');
+  var heroImageDay = document.querySelector('.heroImgDay');
+  var heroImgMoon = document.querySelector('.heroImgMoon');
+  var heroImgSun = document.querySelector('.heroImgSun');
+  var moonSun = document.querySelectorAll('.moonSun');
+  moonSun.forEach(function (element) {
+    element.style.transition = '1s ease';
+  });
+  if (heroImageDay.style.opacity === '1') {
+    heroImageNight.style.opacity = '1';
+    heroImgMoon.style.opacity = '1';
+    heroImgMoon.style.transform = 'translateY(0px)';
+    heroImageDay.style.opacity = '0';
+    heroImgSun.style.opacity = '0';
+    heroImgSun.style.transform = 'translateY(500px)';
+  } else {
+    heroImageDay.style.opacity = '1';
+    heroImgSun.style.opacity = '1';
+    heroImgSun.style.transform = 'translateY(0px)';
+    heroImageNight.style.opacity = '0';
+    heroImgMoon.style.opacity = '0';
+    heroImgMoon.style.transform = 'translateY(500px)';
+  }
+  moonSun.forEach(function (element) {
+    setTimeout(function () {
+      element.style.transition = '0s ease';
+    }, 1000);
+  });
+});
+
 // Parallax on scroll animation
 document.addEventListener('scroll', function (e) {
   var windowWidth = window.innerWidth;
@@ -154,6 +187,7 @@ document.addEventListener('scroll', function (e) {
   var mtnLayerOneR = document.querySelector('.mtnLayer1R');
   var mtnLayerOneL = document.querySelector('.mtnLayer1L');
   var moon = document.querySelector('.moon');
+  var sun = document.querySelector('.sun');
   var boundingClientRect = imageFour.getBoundingClientRect();
 
   // animation calculation
@@ -192,8 +226,9 @@ document.addEventListener('scroll', function (e) {
     mtnLayerOneL.style.transform = "translateX(".concat(mtnLayerOneAnimationLeft, "px)");
     mtnLayerOneR.style.transform = "translateX(".concat(mtnLayerOneAnimationRight, "px)");
 
-    // moon
+    // moon and sun
     moon.style.transform = "translateY(".concat(moonAnimation, "px)");
+    sun.style.transform = "translateY(".concat(moonAnimation, "px)");
   } else {
     var _imageOneOriginalHeight = 70;
     var _imageTwoOriginalHeight = 20;
@@ -218,16 +253,9 @@ document.addEventListener('scroll', function (e) {
     mtnLayerOneL.style.transform = "translateX(".concat(mtnLayerOneAnimationLeft, "px)");
     mtnLayerOneR.style.transform = "translateX(".concat(mtnLayerOneAnimationRight, "px)");
 
-    // moon
+    // moon and sun
     moon.style.transform = "translateY(".concat(moonAnimation, "px)");
-  }
-
-  // gap filler for edge case scrolling from hero section
-  var sectionTwo = document.querySelector('.sectionTwo');
-  if (boundingClientRect.y < -200) {
-    sectionTwo.style.boxShadow = '15px 0px 0px 20px var(--darker-blue-bg)';
-  } else {
-    sectionTwo.style.boxShadow = '0px 0px 0px 0px var(--darker-blue-bg)';
+    sun.style.transform = "translateY(".concat(moonAnimation, "px)");
   }
 
   // heading text scroll, color and opacity animation
@@ -553,7 +581,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58940" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51789" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
