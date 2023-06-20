@@ -114,6 +114,48 @@ select {
   display: flex;
   justify-content: space-between;
 }
+.header .holdingPhoneEl {
+  position: fixed;
+  transition: var(--default-transition-duration);
+  width: 800px;
+  transform: translate(-1000px, -450px) rotate(-50deg);
+}
+.header .holdingPhoneEl .headerListDiv {
+  width: 223px;
+  margin-left: 450px;
+  transform: translateY(495px);
+  display: flex;
+  flex-direction: column;
+}
+.header .holdingPhoneEl .headerListDiv button {
+  border: 0px solid white;
+  background: rgb(109, 109, 109);
+  border-radius: 10px;
+  color: white;
+  font-family: var(--font-main-heading);
+  width: fit-content;
+  align-self: self-end;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.header .holdingPhoneEl .headerListDiv ul {
+  list-style: none;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.header .holdingPhoneEl .headerListDiv ul li {
+  font-family: var(--font-main-heading);
+  cursor: pointer;
+}
+.header .holdingPhoneEl .headerListDiv ul li:hover {
+  text-shadow: 2px 2px 1px var(--darker-blue-bg), -2px -2px 1px var(--darker-blue-bg);
+}
+.header .holdingPhoneEl .headerListDiv ul li a {
+  text-decoration: none;
+  color: var(--white);
+}
 .header .navigation ul {
   list-style: none;
   display: flex;
@@ -125,11 +167,11 @@ select {
   cursor: pointer;
 }
 .header .navigation ul li:hover {
-  text-shadow: 2px 2px 1px var(--section-par-text-color), -2px -2px 1px var(--section-par-text-color);
+  text-shadow: 2px 2px 1px var(--darker-blue-bg), -2px -2px 1px var(--darker-blue-bg);
 }
 .header .navigation ul li a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--white);
 }
 .header .dayNightSwitchContainer .switch {
   display: inline-block;
@@ -1145,6 +1187,22 @@ select {
 }
 .sectionSix .contactUs .contactUsImgContainer .contactUsImgLayerOne {
   position: relative;
+}
+
+.scrollToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  height: 60px;
+  width: 60px;
+  transition: var(--default-transition-duration);
+  cursor: pointer;
+  opacity: 0;
+}
+
+.scrollToTop:hover {
+  transform: translateY(-4px) scale(1.1);
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

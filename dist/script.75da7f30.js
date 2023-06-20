@@ -170,6 +170,19 @@ timeSwitch.addEventListener('click', function () {
   });
 });
 
+// Open and close header
+var holdingPhoneEl = document.querySelector('.holdingPhoneEl');
+var openHeader = document.querySelector('.openHeader');
+var closeHeader = document.querySelector('.closeHeader');
+openHeader.addEventListener('click', function () {
+  console.log('open');
+  holdingPhoneEl.style.transform = 'translate(-220px, -244px) rotate(0deg)';
+});
+closeHeader.addEventListener('click', function () {
+  console.log('close');
+  holdingPhoneEl.style.transform = 'translate(-1000px, -450px) rotate(-50deg)';
+});
+
 // Parallax on scroll animation
 document.addEventListener('scroll', function (e) {
   var windowWidth = window.innerWidth;
@@ -305,6 +318,17 @@ document.addEventListener('scroll', function (e) {
   var mole = document.querySelector('.mole');
   var moleParallaxValue = (50 + heroTextScroll / 20) * -1;
   mole.style.transform = "translateY(".concat(moleParallaxValue, "px)");
+
+  // Scroll to top button display
+  // Scroll to top of window
+  var scrollToTopButton = document.querySelectorAll('.scrollToTop');
+  scrollToTopButton.forEach(function (button) {
+    if (window.scrollY === 0) {
+      button.style.opacity = '0';
+    } else {
+      button.style.opacity = '1';
+    }
+  });
 });
 
 // mouse move aniation
@@ -556,6 +580,14 @@ var contactUsTextObserver = new IntersectionObserver(function (entries, textInte
   });
 }, intersectionObserverOptions);
 contactUsTextObserver.observe(contactUsHeading);
+
+// Scroll to top of window
+var scrollToTopButton = document.querySelectorAll('.scrollToTop');
+scrollToTopButton.forEach(function (button) {
+  button.addEventListener('click', function () {
+    window.scrollTo(0, 0);
+  });
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -581,7 +613,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51789" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57491" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

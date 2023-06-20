@@ -57,6 +57,19 @@ timeSwitch.addEventListener('click', () => {
 
 });
 
+// Open and close header
+const holdingPhoneEl = document.querySelector('.holdingPhoneEl');
+const openHeader = document.querySelector('.openHeader');
+const closeHeader = document.querySelector('.closeHeader');
+openHeader.addEventListener('click', () => {
+    console.log('open')
+    holdingPhoneEl.style.transform = 'translate(-220px, -244px) rotate(0deg)';
+});
+closeHeader.addEventListener('click', () => {
+    console.log('close')
+    holdingPhoneEl.style.transform = 'translate(-1000px, -450px) rotate(-50deg)';
+});
+
 // Parallax on scroll animation
 document.addEventListener('scroll', (e) => {
     const windowWidth = window.innerWidth;
@@ -200,6 +213,17 @@ document.addEventListener('scroll', (e) => {
     const mole = document.querySelector('.mole');
     let moleParallaxValue = (50 + (heroTextScroll / 20)) * -1;
     mole.style.transform = `translateY(${moleParallaxValue}px)`;
+
+    // Scroll to top button display
+    // Scroll to top of window
+    const scrollToTopButton = document.querySelectorAll('.scrollToTop');
+    scrollToTopButton.forEach(button => {
+        if (window.scrollY === 0) {
+            button.style.opacity = '0';
+        } else {
+            button.style.opacity = '1';
+        }
+    });
 
 });
 
@@ -470,3 +494,11 @@ const contactUsTextObserver = new IntersectionObserver(function(entries, textInt
     })
 }, intersectionObserverOptions);
 contactUsTextObserver.observe(contactUsHeading);
+
+// Scroll to top of window
+const scrollToTopButton = document.querySelectorAll('.scrollToTop');
+scrollToTopButton.forEach(button => {
+    button.addEventListener('click', () => {
+        window.scrollTo(0, 0);
+    });
+});
