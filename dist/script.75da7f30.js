@@ -200,7 +200,9 @@ openHeader.addEventListener('click', function () {
   // blur elements
   elementsToBlur.forEach(function (element) {
     element.style.filter = 'blur(10px)';
-    element.style.boxShadow = '0px 0px 0px 0px var(--black)';
+    if (!element.classList.contains('noBoxShadow')) {
+      element.style.boxShadow = '0px 0px 10px 24px var(--darker-blue-bg)';
+    }
   });
 });
 closeHeader.addEventListener('click', function () {
@@ -208,6 +210,7 @@ closeHeader.addEventListener('click', function () {
   // blur elements
   elementsToBlur.forEach(function (element) {
     element.style.filter = 'blur(0px)';
+    element.style.boxShadow = '0px 0px -5px 0px var(--darker-blue-bg)';
   });
 });
 window.addEventListener('keydown', closeHeaderFunction);
@@ -217,6 +220,7 @@ function closeHeaderFunction(event) {
     // blur elements
     elementsToBlur.forEach(function (element) {
       element.style.filter = 'blur(0px)';
+      element.style.boxShadow = '0px 0px -5px 0px var(--darker-blue-bg)';
     });
   }
   ;
@@ -653,7 +657,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51374" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53594" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

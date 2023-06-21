@@ -87,7 +87,9 @@ openHeader.addEventListener('click', () => {
     // blur elements
     elementsToBlur.forEach(element => {
         element.style.filter = 'blur(10px)';
-        element.style.boxShadow = '0px 0px 0px 0px var(--black)';
+        if (!element.classList.contains('noBoxShadow')) {
+            element.style.boxShadow = '0px 0px 10px 24px var(--darker-blue-bg)';
+        }
     });
 
 });
@@ -96,6 +98,7 @@ closeHeader.addEventListener('click', () => {
     // blur elements
     elementsToBlur.forEach(element => {
         element.style.filter = 'blur(0px)';
+        element.style.boxShadow = '0px 0px -5px 0px var(--darker-blue-bg)';
     });
 });
 window.addEventListener('keydown', closeHeaderFunction);
@@ -105,6 +108,7 @@ function closeHeaderFunction(event) {
     // blur elements
     elementsToBlur.forEach(element => {
         element.style.filter = 'blur(0px)';
+        element.style.boxShadow = '0px 0px -5px 0px var(--darker-blue-bg)';
     });
     };
 };
