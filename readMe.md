@@ -1,7 +1,9 @@
 Todo's:
 
--> Add scroll to top button on bottom right hand corner
+-> blur background image when header is open
 
--> create mobile view for header
+-> make the header X bigger on mobile for easy clickability
+
+-> add dark hue background for header phone
 
 -> add footer section

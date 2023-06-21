@@ -21,47 +21,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/32317c8a5f.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 
-    <section class="hero sectionOne">
-        <header class="header">
-
-            <div class="holdingPhoneEl">
-                <div class="headerListDiv">
-                    <button class="closeHeader">X</button>
-                    <ul>
-                        <li><a href="#hero">Back to Top</a></li>
-                        <li><a href="#aboutMe">About Me</a></li>
-                        <li><a href="#toolsTech">Tools & Tech</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#process">Process</a></li>
-                        <li><a href="#contact">Contact</a></li>   
-                    </ul>
-                    <div>
-                        <a><img></a>
-
-                    </div>
-                </div>
-                <img class="PhoneEl" src="/assets/holdingPhone.png" alt="">
-            </div>
-
-            <div class="navigation">
-                <button class="openHeader">open header</button>
-            </div>
-
-            <!-- Day Night Switch -->
-            <div class="dayNightSwitchContainer">
-                <div class="switch">
-                    <input type="checkbox" class="switch__input" id="Switch">
-                    <label class="switchLabel" for="Switch">
-                        <span class="switch__indicator"></span>
-                        <span class="switch__decoration"></span>
-                    </label>
+    <header class="header">
+        <div class="holdingPhoneEl">
+            <div class="headerListDiv">
+                <button class="closeHeader"><i class="fa-solid fa-xmark"></i></button>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#aboutMe">About Me</a></li>
+                    <li><a href="#toolsTech">Tech & Tools</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>   
+                </ul>
+                <div class="iconContainer">
+                    <a target="_blank" href="https://www.linkedin.com/in/kevin-heidema-434204250/"><i class="fa-brands fa-linkedin"></i></a>
+                    <a target="_blank" href="https://github.com/canadiancode"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
+            <img class="PhoneEl" src="/assets/holdingPhone.png" alt="">
+        </div>
 
-        </header>
+        <div class="blur openHeaderContainer">
+            <button class="openHeader">
+                <i class="fa-solid fa-map"></i>
+                <i class="fa-solid fa-map-pin"></i>
+            </button>
+        </div>
+
+        <div></div>
+        <!-- Day Night Switch -->
+        <div class="blur dayNightSwitchContainer">
+            <div class="switch">
+                <input type="checkbox" class="switch__input" id="Switch">
+                <label class="switchLabel" for="Switch">
+                    <span class="switch__indicator"></span>
+                    <span class="switch__decoration"></span>
+                </label>
+            </div>
+        </div>
+
+    </header>
+
+    <section class="hero sectionOne blur">
         <div id="hero" class="imageTextContainer">
             <div class="heroText">
                 <h1 class="heroTextEl heroTextHeadingOne">Kev the Dev</h1>
@@ -84,7 +91,7 @@
         </div>
     </section>
 
-    <section id="aboutMe" class="sectionTwo">
+    <section id="aboutMe" class="sectionTwo blur">
         <img class="mole" src="/assets/personWorking.png" alt="a cartoon mole with a hard hat drilling toward the center of the website">
         <div class="sectionTwoText sectionTwoDiv">
             <div class="sectionTwoTextElements">
@@ -104,7 +111,7 @@
         </div>
     </section>
 
-    <section id="toolsTech" class="sectionThree">
+    <section id="toolsTech" class="sectionThree blur">
         <div class="railroadContainer">
 
             <!-- Track -->
@@ -144,7 +151,7 @@
         </div>
     </section>
 
-    <section id="portfolio" class="sectionFour">
+    <section id="portfolio" class="sectionFour blur">
 
         <div class="projectOne project">
             <div class="sectionFourImg">
@@ -239,7 +246,7 @@
         </div>
     </section>
 
-    <section class="sectionFive">
+    <section class="sectionFive blur">
         <img src="/assets/oilPatchTop.png" alt="" class="oilPatch">
 
         <div id="process" class="serviceContainer">
@@ -272,7 +279,7 @@
         <img src="/assets/oilPatchBottom.png" alt="" class="oilPatch">
     </section>
 
-    <section id="contact" class="sectionSix">
+    <section id="contact" class="sectionSix blur">
         <div class="contactUs">
             <div class="formContainer">
                 <form>
@@ -310,7 +317,7 @@
         </div>
     </section>
     
-    <footer>
+    <footer class="footer blur">
 
     </footer>
 

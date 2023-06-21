@@ -61,14 +61,53 @@ timeSwitch.addEventListener('click', () => {
 const holdingPhoneEl = document.querySelector('.holdingPhoneEl');
 const openHeader = document.querySelector('.openHeader');
 const closeHeader = document.querySelector('.closeHeader');
+const elementsToBlur = document.querySelectorAll('.blur');
 openHeader.addEventListener('click', () => {
-    console.log('open')
-    holdingPhoneEl.style.transform = 'translate(-220px, -244px) rotate(0deg)';
+
+    // Change side of header/phone
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 650) {
+        holdingPhoneEl.style.transform = 'translate(-220px, -455px) rotate(0deg)';
+    } else if (windowWidth < 650 && windowWidth >= 500) {
+        holdingPhoneEl.style.transform = 'translate(-300px, -455px) rotate(0deg) scale(0.9)';
+    } else if (windowWidth < 500 && windowWidth >= 450) {
+        holdingPhoneEl.style.transform = 'translate(-363px, -455px) rotate(0deg) scale(0.8)';
+    } else if (windowWidth < 450 && windowWidth >= 400) {
+        holdingPhoneEl.style.transform = 'translate(-363px, -455px) rotate(0deg) scale(0.8)';
+    } else if (windowWidth < 400 && windowWidth >= 350) {
+        holdingPhoneEl.style.transform = 'translate(-388px, -455px) rotate(0deg) scale(0.8)';
+    } else if (windowWidth < 350) {
+        holdingPhoneEl.style.transform = 'translate(-412px, -455px) rotate(0deg) scale(0.8)';
+    }
+    const windowHeight = window.innerHeight;
+    if (windowHeight < 650) {
+        holdingPhoneEl.style.transform = 'translate(-300px, -521px) rotate(0deg) scale(0.9)';
+    };
+
+    // blur elements
+    elementsToBlur.forEach(element => {
+        element.style.filter = 'blur(10px)';
+        element.style.boxShadow = '0px 0px 0px 0px var(--black)';
+    });
+
 });
 closeHeader.addEventListener('click', () => {
-    console.log('close')
-    holdingPhoneEl.style.transform = 'translate(-1000px, -450px) rotate(-50deg)';
+    holdingPhoneEl.style.transform = 'translate(-1150px, -450px) rotate(-50deg)';
+    // blur elements
+    elementsToBlur.forEach(element => {
+        element.style.filter = 'blur(0px)';
+    });
 });
+window.addEventListener('keydown', closeHeaderFunction);
+function closeHeaderFunction(event) {
+    if (event.key === 'Escape') {
+        holdingPhoneEl.style.transform = 'translate(-1150px, -450px) rotate(-50deg)';
+    // blur elements
+    elementsToBlur.forEach(element => {
+        element.style.filter = 'blur(0px)';
+    });
+    };
+};
 
 // Parallax on scroll animation
 document.addEventListener('scroll', (e) => {

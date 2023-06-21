@@ -174,14 +174,54 @@ timeSwitch.addEventListener('click', function () {
 var holdingPhoneEl = document.querySelector('.holdingPhoneEl');
 var openHeader = document.querySelector('.openHeader');
 var closeHeader = document.querySelector('.closeHeader');
+var elementsToBlur = document.querySelectorAll('.blur');
 openHeader.addEventListener('click', function () {
-  console.log('open');
-  holdingPhoneEl.style.transform = 'translate(-220px, -244px) rotate(0deg)';
+  // Change side of header/phone
+  var windowWidth = window.innerWidth;
+  if (windowWidth >= 650) {
+    holdingPhoneEl.style.transform = 'translate(-220px, -455px) rotate(0deg)';
+  } else if (windowWidth < 650 && windowWidth >= 500) {
+    holdingPhoneEl.style.transform = 'translate(-300px, -455px) rotate(0deg) scale(0.9)';
+  } else if (windowWidth < 500 && windowWidth >= 450) {
+    holdingPhoneEl.style.transform = 'translate(-363px, -455px) rotate(0deg) scale(0.8)';
+  } else if (windowWidth < 450 && windowWidth >= 400) {
+    holdingPhoneEl.style.transform = 'translate(-363px, -455px) rotate(0deg) scale(0.8)';
+  } else if (windowWidth < 400 && windowWidth >= 350) {
+    holdingPhoneEl.style.transform = 'translate(-388px, -455px) rotate(0deg) scale(0.8)';
+  } else if (windowWidth < 350) {
+    holdingPhoneEl.style.transform = 'translate(-412px, -455px) rotate(0deg) scale(0.8)';
+  }
+  var windowHeight = window.innerHeight;
+  if (windowHeight < 650) {
+    holdingPhoneEl.style.transform = 'translate(-300px, -521px) rotate(0deg) scale(0.9)';
+  }
+  ;
+
+  // blur elements
+  elementsToBlur.forEach(function (element) {
+    element.style.filter = 'blur(10px)';
+    element.style.boxShadow = '0px 0px 0px 0px var(--black)';
+  });
 });
 closeHeader.addEventListener('click', function () {
-  console.log('close');
-  holdingPhoneEl.style.transform = 'translate(-1000px, -450px) rotate(-50deg)';
+  holdingPhoneEl.style.transform = 'translate(-1150px, -450px) rotate(-50deg)';
+  // blur elements
+  elementsToBlur.forEach(function (element) {
+    element.style.filter = 'blur(0px)';
+  });
 });
+window.addEventListener('keydown', closeHeaderFunction);
+function closeHeaderFunction(event) {
+  if (event.key === 'Escape') {
+    holdingPhoneEl.style.transform = 'translate(-1150px, -450px) rotate(-50deg)';
+    // blur elements
+    elementsToBlur.forEach(function (element) {
+      element.style.filter = 'blur(0px)';
+    });
+  }
+  ;
+}
+;
 
 // Parallax on scroll animation
 document.addEventListener('scroll', function (e) {
@@ -613,7 +653,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57491" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51374" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

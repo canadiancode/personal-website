@@ -92,6 +92,9 @@ select {
   --section-title-text-shadow: 2px 2px 0px var(--ligher-blue-bg), -2px -2px 0px var(--ligher-blue-bg);
   --par-text-shadow: 2px 2px 3px var(--black);
   --hero-text-shadow: 0px 4px 12px black;
+  --button-border: #5B5B5B;
+  --button-background: #2B2B2B;
+  --button-icon-color: #bdbbbb;
   --main-header-size: calc(12px + 4vmax);
   --main-header-size-mobile: calc(12px + 3vmax);
   --main-subheader-size: calc(12px + 2vmax);
@@ -118,12 +121,12 @@ select {
   position: fixed;
   transition: var(--default-transition-duration);
   width: 800px;
-  transform: translate(-1000px, -450px) rotate(-50deg);
+  transform: translate(-1150px, -450px) rotate(-50deg);
 }
 .header .holdingPhoneEl .headerListDiv {
   width: 223px;
   margin-left: 450px;
-  transform: translateY(495px);
+  transform: translateY(570px);
   display: flex;
   flex-direction: column;
 }
@@ -137,6 +140,7 @@ select {
   align-self: self-end;
   margin-right: 10px;
   cursor: pointer;
+  padding: 0px 7px;
 }
 .header .holdingPhoneEl .headerListDiv ul {
   list-style: none;
@@ -156,22 +160,52 @@ select {
   text-decoration: none;
   color: var(--white);
 }
-.header .navigation ul {
-  list-style: none;
+.header .holdingPhoneEl .headerListDiv .iconContainer {
   display: flex;
+  flex-direction: row;
   gap: 1rem;
-  margin-left: 2rem;
+  padding-top: 30px;
+  padding-left: 40px;
 }
-.header .navigation ul li {
-  font-family: var(--font-main-heading);
+.header .holdingPhoneEl .headerListDiv .iconContainer a {
+  width: fit-content;
+}
+.header .holdingPhoneEl .headerListDiv .iconContainer a i {
+  font-size: 2em;
+  color: var(--white);
   cursor: pointer;
 }
-.header .navigation ul li:hover {
-  text-shadow: 2px 2px 1px var(--darker-blue-bg), -2px -2px 1px var(--darker-blue-bg);
+.header .openHeaderContainer {
+  position: fixed;
 }
-.header .navigation ul li a {
-  text-decoration: none;
-  color: var(--white);
+.header .openHeaderContainer button {
+  background: var(--button-background);
+  border: 5px var(--button-border) solid;
+  border-radius: 9999px;
+  padding: 4px 15px;
+  cursor: pointer;
+  position: relative;
+}
+.header .openHeaderContainer button:hover i {
+  transform: translateY(5px);
+}
+.header .openHeaderContainer button:hover .fa-map-pin {
+  transform: translateY(-3px);
+}
+.header .openHeaderContainer button i {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  color: var(--button-icon-color);
+  transform: translateY(6px);
+  transition: var(--default-transition-duration);
+}
+.header .openHeaderContainer button .fa-map-pin {
+  position: absolute;
+  top: 0;
+  right: 21px;
+  color: #913c3c;
+  font-size: 1.3rem;
+  transform: translateY(-6px);
 }
 .header .dayNightSwitchContainer .switch {
   display: inline-block;
@@ -192,8 +226,8 @@ select {
   display: inline-block;
   width: 120px;
   height: 60px;
-  background-color: #2B2B2B;
-  border: 5px solid #5B5B5B;
+  background-color: var(--button-background);
+  border: 5px solid var(--button-border);
   border-radius: 9999px;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
@@ -206,7 +240,7 @@ select {
   display: block;
   width: 40px;
   height: 40px;
-  background-color: #7B7B7B;
+  background-color: var(--button-icon-color);
   border-radius: 9999px;
   box-shadow: 10px 0px 0 0 rgba(0, 0, 0, 0.2) inset;
 }
