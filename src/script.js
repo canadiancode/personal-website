@@ -102,8 +102,11 @@ closeHeader.addEventListener('click', () => {
     });
 });
 window.addEventListener('keydown', closeHeaderFunction);
+document.querySelectorAll('.headerItem').forEach(item => {
+    item.addEventListener('click', closeHeaderFunction);
+})
 function closeHeaderFunction(event) {
-    if (event.key === 'Escape') {
+    if (event.key === 'Escape' || event.target.classList.contains('headerItem')) {
         holdingPhoneEl.style.transform = 'translate(-1150px, -450px) rotate(-50deg)';
     // blur elements
     elementsToBlur.forEach(element => {
@@ -537,6 +540,32 @@ const contactUsTextObserver = new IntersectionObserver(function(entries, textInt
     })
 }, intersectionObserverOptions);
 contactUsTextObserver.observe(contactUsHeading);
+
+// Email.JS script
+(function() {
+    emailjs.init('sCcEdrZXGZFl9sLyp');
+})();
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const form = document.getElementById('contactForm');
+    const from_name = document.querySelector('#user_name');
+    const business_name = document.querySelector('#business_name');
+    const user_email = document.querySelector('#user_email');
+    const message = document.querySelector('#message');
+
+    try {
+        emailjs.sendForm('service_m6rjjr9', 'template_d9xdnm9', form)
+        .then(function() {
+            console.log('Email sent!');
+        }, function(error) {
+            console.log('Error:', error);
+        });
+    } catch (error) {
+        console.log(`Did not send form: ${error}`);
+    }
+});
+
 
 // Scroll to top of window
 const scrollToTopButton = document.querySelectorAll('.scrollToTop');

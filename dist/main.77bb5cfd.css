@@ -1131,6 +1131,7 @@ select {
   gap: 1.2rem;
   padding: 2rem;
   max-width: 550px;
+  min-height: 685px;
   margin: 1rem;
   border-radius: 10px;
   box-shadow: 10px 10px 20px #091118;
@@ -1157,6 +1158,7 @@ select {
   border-radius: 5px;
   color: var(--white);
   box-shadow: inset 1px 1px 8px 0px var(--black);
+  font-family: var(--pragraph-font);
 }
 .sectionSix .contactUs .formContainer form input:placeholder-shown {
   font-family: var(--pragraph-font);
@@ -1173,12 +1175,14 @@ select {
   padding: 7px 10px;
   border-radius: 5px;
   color: var(--white);
+  font-family: var(--pragraph-font);
 }
 .sectionSix .contactUs .formContainer form textarea:placeholder-shown {
   font-family: var(--pragraph-font);
 }
-.sectionSix .contactUs .formContainer form button {
+.sectionSix .contactUs .formContainer form .submitFormButton {
   user-select: none;
+  box-shadow: none;
   cursor: pointer;
   font-family: var(--font-sub-heading);
   border: solid 2px var(--section-par-text-color);
@@ -1188,7 +1192,7 @@ select {
   padding: 3px 0px;
   transition: var(--default-transition-duration);
 }
-.sectionSix .contactUs .formContainer form button:hover {
+.sectionSix .contactUs .formContainer form .submitFormButton:hover {
   border: solid 2px var(--section-par-text-color);
   color: var(--black);
   background-color: var(--section-par-text-color);

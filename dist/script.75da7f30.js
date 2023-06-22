@@ -214,8 +214,11 @@ closeHeader.addEventListener('click', function () {
   });
 });
 window.addEventListener('keydown', closeHeaderFunction);
+document.querySelectorAll('.headerItem').forEach(function (item) {
+  item.addEventListener('click', closeHeaderFunction);
+});
 function closeHeaderFunction(event) {
-  if (event.key === 'Escape') {
+  if (event.key === 'Escape' || event.target.classList.contains('headerItem')) {
     holdingPhoneEl.style.transform = 'translate(-1150px, -450px) rotate(-50deg)';
     // blur elements
     elementsToBlur.forEach(function (element) {
@@ -625,6 +628,28 @@ var contactUsTextObserver = new IntersectionObserver(function (entries, textInte
 }, intersectionObserverOptions);
 contactUsTextObserver.observe(contactUsHeading);
 
+// Email.JS script
+(function () {
+  emailjs.init('sCcEdrZXGZFl9sLyp');
+})();
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+  var form = document.getElementById('contactForm');
+  var from_name = document.querySelector('#user_name');
+  var business_name = document.querySelector('#business_name');
+  var user_email = document.querySelector('#user_email');
+  var message = document.querySelector('#message');
+  try {
+    emailjs.sendForm('service_m6rjjr9', 'template_d9xdnm9', form).then(function () {
+      console.log('Email sent!');
+    }, function (error) {
+      console.log('Error:', error);
+    });
+  } catch (error) {
+    console.log("Did not send form: ".concat(error));
+  }
+});
+
 // Scroll to top of window
 var scrollToTopButton = document.querySelectorAll('.scrollToTop');
 scrollToTopButton.forEach(function (button) {
@@ -657,7 +682,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53929" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59328" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

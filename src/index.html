@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Kev the Dev</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/Favicon.png">
 
     <!-- Script -->
     <script src="/script.js" defer></script>
@@ -24,6 +28,9 @@
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/32317c8a5f.js" crossorigin="anonymous"></script>
 
+    <!-- Email.JS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 </head>
 <body>
 
@@ -32,12 +39,12 @@
             <div class="headerListDiv">
                 <button class="closeHeader"><i class="fa-solid fa-xmark"></i></button>
                 <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#aboutMe">About Me</a></li>
-                    <li><a href="#toolsTech">Tech & Tools</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#process">Process</a></li>
-                    <li><a href="#contact">Contact</a></li>   
+                    <li><a class="headerItem" href="#hero">Home</a></li>
+                    <li><a class="headerItem" href="#aboutMe">About Me</a></li>
+                    <li><a class="headerItem" href="#toolsTech">Tech & Tools</a></li>
+                    <li><a class="headerItem" href="#portfolio">Portfolio</a></li>
+                    <li><a class="headerItem" href="#process">Process</a></li>
+                    <li><a class="headerItem" href="#contact">Contact</a></li>   
                 </ul>
                 <div class="iconContainer">
                     <a target="_blank" href="https://www.linkedin.com/in/kevin-heidema-434204250/"><i class="fa-brands fa-linkedin"></i></a>
@@ -282,24 +289,24 @@
     <section id="contact" class="sectionSix blur">
         <div class="contactUs">
             <div class="formContainer">
-                <form>
+                <form id="contactForm">
                     <div>
                         <label>Your Name:</label>
-                        <input type="text" placeholder="Your name">
+                        <input id="user_name" name="user_name" type="text" placeholder="Your name" required>
                     </div>
                     <div>
                         <label>Business Name:</label>
-                        <input type="name" placeholder="Business name">
+                        <input id="business_name" name="business_name" type="name" placeholder="Business name" required>
                     </div>
                     <div>
                         <label>Email:</label>
-                        <input type="email" placeholder="Email">
+                        <input id="user_email" name="user_email" type="email" placeholder="Email" required>
                     </div>
                     <div>
                         <label>Your Message:</label>
-                        <textarea placeholder="Your message here"></textarea>
+                        <textarea id="message" name="message" placeholder="Your message here" required></textarea>
                     </div>
-                    <button class="submitFormButton">Submit</button>
+                    <input type="submit" value="Submit" class="submitFormButton">
                 </form>
             </div>
         </div>
