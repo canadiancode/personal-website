@@ -558,6 +558,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         emailjs.sendForm('service_m6rjjr9', 'template_d9xdnm9', form)
         .then(function() {
             console.log('Email sent!');
+            
         }, function(error) {
             console.log('Error:', error);
         });

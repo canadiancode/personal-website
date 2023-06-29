@@ -92,6 +92,7 @@ select {
   --section-title-text-shadow: 2px 2px 0px var(--ligher-blue-bg), -2px -2px 0px var(--ligher-blue-bg);
   --par-text-shadow: 2px 2px 3px var(--black);
   --hero-text-shadow: 0px 4px 12px black;
+  --hero-suntext-shadow: 0px 4px 2px black;
   --button-border: #5B5B5B;
   --button-background: #2B2B2B;
   --button-icon-color: #bdbbbb;
@@ -388,7 +389,6 @@ select {
   transition: var(--default-transition-duration);
   text-align: center;
   padding: 2rem 2rem;
-  text-shadow: var(--hero-text-shadow);
   white-space: nowrap;
   color: var(--black);
 }
@@ -398,6 +398,7 @@ select {
   margin-bottom: -2rem;
   clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
   transform: translateY(50px);
+  text-shadow: var(--hero-text-shadow);
 }
 @media screen and (max-width: 300px) {
   .sectionOne .imageTextContainer .heroText h1 {
@@ -408,6 +409,7 @@ select {
   font-family: var(--font-sub-heading);
   font-size: var(--main-subheader-size);
   margin-top: -1rem;
+  text-shadow: var(--hero-suntext-shadow);
   clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
   transform: translateY(-50px);
   line-height: normal;
