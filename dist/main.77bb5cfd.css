@@ -1130,6 +1130,7 @@ select {
 .sectionSix .contactUs .formContainer form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1.2rem;
   padding: 2rem;
   max-width: 550px;
@@ -1198,6 +1199,16 @@ select {
   border: solid 2px var(--section-par-text-color);
   color: var(--black);
   background-color: var(--section-par-text-color);
+}
+.sectionSix .contactUs .formContainer .thankYouTextContainer {
+  display: flex;
+}
+.sectionSix .contactUs .formContainer .thankYouTextContainer .thankYouText {
+  color: var(--white);
+  text-shadow: var(--par-text-shadow);
+  font-family: var(--pragraph-font);
+  font-size: var(--paragraph-size);
+  user-select: none;
 }
 .sectionSix .contactUs .conactUsText h4, .sectionSix .contactUs .conactUsText p {
   transition: var(--default-transition-duration);

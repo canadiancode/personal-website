@@ -558,6 +558,21 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         emailjs.sendForm('service_m6rjjr9', 'template_d9xdnm9', form)
         .then(function() {
             console.log('Email sent!');
+
+            // remove the inputs 
+            document.querySelector('#contactForm').innerHTML = '';
+
+            // Create & add new element
+            let thankYouTextContainer = document.createElement('div');
+            thankYouTextContainer.classList.add('thankYouTextContainer');
+            let thankYouText = document.createElement('p');
+            thankYouText.classList.add('thankYouText');
+            thankYouText.textContent = 'Thank you for contacting me! I will reach out as soon as possible, and thanks for the patience!';
+
+            // append text to form 
+            thankYouTextContainer.appendChild(thankYouText);
+            document.querySelector('#contactForm').appendChild(thankYouTextContainer);
+
             
         }, function(error) {
             console.log('Error:', error);

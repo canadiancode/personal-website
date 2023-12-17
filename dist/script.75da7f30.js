@@ -642,6 +642,20 @@ document.getElementById('contactForm').addEventListener('submit', function (even
   try {
     emailjs.sendForm('service_m6rjjr9', 'template_d9xdnm9', form).then(function () {
       console.log('Email sent!');
+
+      // remove the inputs 
+      document.querySelector('#contactForm').innerHTML = '';
+
+      // Create & add new element
+      var thankYouTextContainer = document.createElement('div');
+      thankYouTextContainer.classList.add('thankYouTextContainer');
+      var thankYouText = document.createElement('p');
+      thankYouText.classList.add('thankYouText');
+      thankYouText.textContent = 'Thank you for contacting me! I will reach out as soon as possible, and thanks for the patience!';
+
+      // append text to form 
+      thankYouTextContainer.appendChild(thankYouText);
+      document.querySelector('#contactForm').appendChild(thankYouTextContainer);
     }, function (error) {
       console.log('Error:', error);
     });
@@ -682,7 +696,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65458" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61576" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
